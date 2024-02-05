@@ -1,5 +1,6 @@
-\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
-\usepackage{geometry}   
+\documentclass[12pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}   
+\linespread{1.5}
 \usepackage{hyperref}             		% See geometry.pdf to learn the layout options. There are lots.
 \geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
 %\geometry{landscape}                		% Activate for rotated page geometry
@@ -47,7 +48,7 @@ The paper starts with background and crucial definitions for understanding AI as
 This whitepaper is concerned with how modern advances in computing can be brought to bear on the Miller Center’s goals and research problems.  The advances we consider occupy the space denoted by terms such as data science and artificial intelligence (AI).  In this section we offer working definitions of these terms and related vocabulary.
 
 \subsection{Data Science}\label{section.definitions.data-science}
-The School of Data Science (SDS) at UVA defines data science as “the study of data and the methods used to learn from data.\footnote{\url{https://datascience.virginia.edu/pages/what-data-science} (Retrieved on January 9, 2024).}”  In the SDS formulation, broad definition entails several more focused types of activity, including:
+The School of Data Science (SDS) at UVA defines data science as “the study of data and the methods used to learn from data.” \cite{sds:2023}  In the SDS formulation, broad definition entails several more focused types of activity, including:
 
 \begin{itemize}
 \item Research and development on statistical prediction models.
@@ -68,5 +69,39 @@ Though the term Artificial Intelligence (AI) was coined in the 1940’s, it took
 \item Deep learning expanded the value of machine learning. Research in machine learning has matured in a way that allows programmers to build predictive models that that solve human problems with previously unseen accuracy and flexibility.   
 \end{itemize}
 
+When people talk about AI today, they are usually talking about this trifecta, an intersection of historical events that together allow computers to do things that we recognize as wholly novel, tasks that were formerly limited to human agency.
+
+For the remainder of this whitepaper, we will use the term \emph{artificial intelligence} to refer to the full breadth of this phenomenon.  That is, we will use AI to describe both novel inferential systems and the milieu in which they have been developed—\emph{AI, for our purposes, is the intersection of data-intensive computation, data-centric computational best practice, and the deep learning models that arise from these practices.}
+
+
+\subsection{Neural Networks and Deep Learning}\label{section.definitions.deep-learning}
+The term \emph{machine learning} refers to the practice of training computers to recognize patterns in order for them to make predictions or other inferences.  Machine learning is a well-established academic field, straddling computer science and statistics.  In the early 2000’s, the state of the art in machine learning suddenly and fundamentally changed, when researchers sparked a novel innovation—\emph{deep learning.}  Deep learning has become the mainstay of modern machine learning, and it forms the backbone of the current generation of AI systems.
+
+The hallmark of deep learning is the size and structure of its models.  Earlier machine learning algorithms used training data to learn a relatively small number of model parameters.  These parameters were essentially weights, and they allowed a system to make inferences.  For instance, a classical email spam filter guessed the status (spam or non-spam) of an incoming message by observing the word tokens in the message.  The filter would look up how strongly each word is associated with spam messages versus non-spam messages.  By summing these weights over the terms in a message, the system could reasonably predict the likelihood that a person would judge the message to be spam.  In this scenario, the model consists of two weights (spamminess and non-spamminess) of each word in the English language (assuming the user is an English speaker), on the order of tens of thousands of parameters.  Different algorithms varied in how they estimated these weights.  But the basic structure of the model (a pair of weights per word type) and the operation for inference (a weighted sum) were shared by most methods.
+
+Deep learning fundamentally changed this state of affairs.  Instead of tens of thousands of parameters, deep learning models have millions or billions, and in some cases trillions, of parameters.  As in older models, deep learning has weights analogous to those described above; in a deep learning email filter, we would indeed see weights for each word in the English language.  But in addition to these, deep learning contains armies of secondary parameters.  Collectively, these so-called “hidden layers” of the model capture relationships between observed variables such as words.  This architecture allows, for instance, a deep learning model to learn that the phrase \emph{machine learning} is a single concept, an idea greater than the sum of its lexical parts.  This novel architecture qualitatively changed the sophistication and expressiveness of machine learning models.
+
+
+\subsection{Large Language Models}\label{section.definitions.llms}
+Much of the hype around AI concerns so-called large language models (LLMs).  As their name suggests, LLMs are deep learning models that attempt to mimic human linguistic behavior.  OpenAI’s GPT, Google’s Bard, and Facebook’s Llama are all LLMs.  The accuracy and flexibility of LLMs is perhaps the most striking development in the landscape of current AI research and development.  Due to the Miller Center’s focus on scholarly communication and political insight, LLMs will also be of special interest as we consider how the center can make use of AI in the future.
+
+A particularly important distinction between older models and LLMs is that LLMs are trained to perform well on a variety of linguistic tasks, while older models were narrowly scoped.  In our example above we mentioned an email spam filter.  This is a classic example of older-generation machine learning.  Such a filter is intended to be used in a narrow setting, for a single task.  On the other hand, LLMs like GPT or Llama model general linguistic fluency.  They can perform well on a variety of loosely structured tasks such as summarization, translation, or even writing from scratch.  In fact, an interesting result of modern AI is that researchers often do not know what tasks their models will do well on, and an import goal of current research is finding and demonstrating novel uses of LLMs.  This is likely to be a part of the work we at the Miller Center undertake as we explore AI suitability for our needs.
+
+This new-found model fluency and flexibility is partly due to the novel model structure afforded by deep learning.  Without deep learning’s vast architectural complexity, LLM’s would be unable to encode human knowledge so accurately.  But the other crucial factor in this development is an abundance of training data.  Older models, with parsimonious structures, could be trained with relatively small sets of data.  LLMs, on the other hand, require terabytes, even petabytes of data before they can perform well.  Figure 1 shows the growth of LLM parameter spaces between 2018 and 2023\footnote{Information about the evolution of model size is available in several sources in this paper’s Related Reading section, such as \cite{shazeer:2017, wei:2022}, Lepkin at al. (2021) and Wei et al. (2022).}.  Early models such as GPT-1 learned on the order of 100 million parameters, while the current state of the art (e.g. GPT4) boasts over 100 trillion parameters.  This increase has improved the accuracy and fluency of LLMs.  But increasing model size demands a corresponding increase in training data.  Training data on the order of 10 terabytes was common in 2015.  But current models demand multiple petabytes to reach a stable, saturated status.  Because these models require so much data to reach their potential, they are expensive to build, and an important fact of modern AI work is that instead of training new models for each deployment, it is incumbent on AI professionals to find creative ways to re-use pre-trained models.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{./figures/llm_params.png}
+\caption{Large Language Models, 2012-2023.}
+\label{default}
+\end{center}
+\end{figure}
+
+
+\subsection{Foundation Models, Model Fine-Tunings and Retrieval-Augmented Generation}\label{section.definitions.foundation-models}
+
+\pagebreak
+\bibliographystyle{apalike}
+\bibliography{mcai}
 
 \end{document}  
