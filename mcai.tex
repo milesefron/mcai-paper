@@ -1,0 +1,72 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}   
+\usepackage{hyperref}             		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Artificial Intelligence, Data Science Methods, and Strategic Opportunities for the Miller Center}
+\author{Miles Efron}
+\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\abstract{Since the release of ChatGPT in 2022, Artificial Intelligence (AI) technologies have seized the public’s attention.  For institutions such as the Miller Center, these technologies offer opportunities to improve institutional impact and to modernize workflows. But how to capitalize on these opportunities, and how to avoid their concomitant pitfalls is not obvious.  To make sense of AI’s promises and risks, this whitepaper undertakes a wholesale consideration of how Miller Center staff and leadership could marshal AI technology (broadly understood) to further the center’s mission and work.  The whitepaper consists of three main parts.  First, we give a detailed census of the data available for AI work at the Miller Center, with an eye towards understanding how our data holdings could be brought to bear on future technological initiatives.  Second, we outline the institutional context in which future data-intensive work would take place.  This involves both a survey of relevant past work at the Miller Center, and a consideration of AI initiatives and working groups currently at work across Grounds at UVA.  Lastly, the paper concludes with a set of recommendations for future work—a listing of variously ambitious data-intensive projects that the Miller Center could undertake to increase its overall institutional impact and success.}
+
+\pagebreak
+\tableofcontents
+\pagebreak
+
+
+
+\section{Introduction}\label{section.introduction}
+In 2023, Artificial Intelligence (AI) decisively stepped out of the shadows of theoretical computer science and into the limelight of practical, impactful technology. This transition was fueled by notable advancements in AI technology and an increasing ease of access to AI tools.  With AI at the front of public attention and imagination, there is a growing sense of possibility but also anxiety around AI.  AI tools support truly novel workflows, allowing people to survey and capitalize on data at previously unseen scale with ease.  But the very flexibility of these tools, their novelty and breadth of application, makes them hard to understand fully.  Exactly how to use these new tools is a non-obvious, non-trivial question.
+Nowhere are these developments more keenly felt than in universities.  Academia, with its traditions of scholarly exploration, argumentation from data, and the free exchange of ideas, is uniquely situated to make use of AI.  However, the same challenges obtain in universities as anywhere else, perhaps more so—there is a sense that AI presents a singular opportunity for academia, but how to meet this opportunity is a profound challenge.  In light of this challenge, university faculty, staff, and administrators have begun to organize their thinking and efforts, forming committees, research programs, and initiatives to study how to integrate AI into their work.  2024, it seems, will be a watershed year for the fate of AI in academia.
+As a scholarly unit with a huge portfolio of machine-readable data and a history of technical innovation, the Miller Center of Public Affairs at UVA is poised to find uses for AI that both increase the impact of its work and that catch the public attention.   Without any formal deliberation, Miller Center leadership and staff have already recognized that AI presents us with a chance to grow the impact of our work.  In terms of outward-facing impact, there is a sense that AI will help us share our results more broadly than before and with greater effect.  In terms of internal workflows, Miller Center scholars and staff already use AI on a daily basis (as of 2024 everyday software such as Google, MS Word, and Adobe Photoshop all use AI), and it seems unlikely for the footprint of AI on our workflows to shrink.
+To help synthesize these issues and to recommend a strategic posture with respect to AI, Miller Center leadership commissioned this white paper.  The goal of the paper is twofold:
+
+\begin{enumerate}
+\item To give readers at the Miller Center a shared context (vocabulary, historical framework) for understanding what factors are in play when we discuss AI and academia in 2024.
+\item To propose a slate of possible projects that would bring AI technologies to bear on Miller Center work in tangible, impactful ways.
+\end{enumerate}
+
+
+The paper starts with background and crucial definitions for understanding AI as it pertains to Miller Center priorities and work.  A high-level census of Miller Center data follows.  While tools such as ChatGPT are fully useable without any particular data requirement, more advanced applications of AI require data in sufficient quantity and of high quality.  The aim of the data census is to give a basis for understanding what kinds of model training or evaluation would be feasible for the Miller Center.  The final section of the paper enumerates several AI projects that the Miller Center could undertake.  Our goal in this enumeration is to offer projects of varying ambition and varying risk, from simple “low-hanging fruit” to cutting-edge deployments that would entail research activity in their own right.  Overall, our hope is to give a sense of what is possible for the Miller Center, in efforts to spark a conversation about how best to move forward.
+
+
+\section{Definitions and Descriptions of Data Science and Artificial Intelligence}\label{section.definitions}
+This whitepaper is concerned with how modern advances in computing can be brought to bear on the Miller Center’s goals and research problems.  The advances we consider occupy the space denoted by terms such as data science and artificial intelligence (AI).  In this section we offer working definitions of these terms and related vocabulary.
+
+\subsection{Data Science}\label{section.definitions.data-science}
+The School of Data Science (SDS) at UVA defines data science as “the study of data and the methods used to learn from data.\footnote{\url{https://datascience.virginia.edu/pages/what-data-science} (Retrieved on January 9, 2024).}”  In the SDS formulation, broad definition entails several more focused types of activity, including:
+
+\begin{itemize}
+\item Research and development on statistical prediction models.
+\item Methods and best-practice in computing that support large-scale operations on data.
+\item Advanced data visualization methods.
+\item The study of how data can best impact society.
+\end{itemize}
+
+To contextualize their work, SDS explains that “Much of our research uses statistical, computational, and philosophical principles to enhance ongoing collaborations …[with other departments and fields].”  In other words, data science often plays a supporting role in the research process.  Instead of presenting a fully formed view of research in its own right, data science is essentially a set of principles and methods that allow us to use tools (statistical prediction, visualizations, etc.) in our own work in ways that have proven to yield value.
+
+
+\subsection{Artificial Intelligence}\label{section.definitions.artificial-intelligence}
+Though the term Artificial Intelligence (AI) was coined in the 1940’s, it took on new meaning in 2022, when OpenAI released their chatbot, ChatGPT.  What we currently call artificial intelligence is best understood as the confluence of three related developments:
+
+\begin{itemize}
+\item Cheap, plentiful computation has become pervasive.  This makes once-impossible computational problems tractable. Cloud computing and advanced networking make it simple to build heroically powerful supercomputers.
+\item Electronic data is abundant and inexpensive.  The internet has reached a size and a level of professionalism in its technical underpinnings that make it feasible to acquire, store, and recall data on a scale that has never been possible before.
+\item Deep learning expanded the value of machine learning. Research in machine learning has matured in a way that allows programmers to build predictive models that that solve human problems with previously unseen accuracy and flexibility.   
+\end{itemize}
+
+
+\end{document}  
