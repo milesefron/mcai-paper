@@ -1,5 +1,7 @@
 \documentclass[12pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
-\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}   
+\usepackage{booktabs}
+
+\usepackage[left=0.75in, right=0.75in, top=1in, bottom=1in]{geometry}   
 \linespread{1.5}
 \usepackage{hyperref}             		% See geometry.pdf to learn the layout options. There are lots.
 \geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
@@ -21,7 +23,7 @@
 \begin{document}
 \maketitle
 
-\abstract{Since the release of ChatGPT in 2022, Artificial Intelligence (AI) technologies have seized the public’s attention.  For institutions such as the Miller Center, these technologies offer opportunities to improve institutional impact and to modernize workflows. But how to capitalize on these opportunities, and how to avoid their concomitant pitfalls is not obvious.  To make sense of AI’s promises and risks, this whitepaper undertakes a wholesale consideration of how Miller Center staff and leadership could marshal AI technology (broadly understood) to further the center’s mission and work.  The whitepaper consists of three main parts.  First, we give a detailed census of the data available for AI work at the Miller Center, with an eye towards understanding how our data holdings could be brought to bear on future technological initiatives.  Second, we outline the institutional context in which future data-intensive work would take place.  This involves both a survey of relevant past work at the Miller Center, and a consideration of AI initiatives and working groups currently at work across Grounds at UVA.  Lastly, the paper concludes with a set of recommendations for future work—a listing of variously ambitious data-intensive projects that the Miller Center could undertake to increase its overall institutional impact and success.}
+\abstract{Since the release of ChatGPT in 2022, Artificial Intelligence (AI) technologies have seized the public’s attention.  For institutions such as the Miller Center, these technologies offer opportunities to improve institutional impact and to modernize workflows. But how to capitalize on these opportunities, and how to avoid their concomitant pitfalls is not obvious.  To make sense of AI’s promises and risks, this white paper undertakes a wholesale consideration of how Miller Center staff and leadership could marshal AI technology (broadly understood) to further the center’s mission and work.  The white paper consists of three main parts.  First, we give a detailed census of the data available for AI work at the Miller Center, with an eye towards understanding how our data holdings could be brought to bear on future technological initiatives.  Second, we outline the institutional context in which future data-intensive work would take place.  This involves both a survey of relevant past work at the Miller Center, and a consideration of AI initiatives and working groups currently at work across Grounds at UVA.  Lastly, the paper concludes with a set of recommendations for future work—a listing of variously ambitious data-intensive projects that the Miller Center could undertake to increase its overall institutional impact and success.}
 
 \pagebreak
 \tableofcontents
@@ -30,9 +32,12 @@
 
 
 \section{Introduction}\label{section.introduction}
-In 2023, Artificial Intelligence (AI) decisively stepped out of the shadows of theoretical computer science and into the limelight of practical, impactful technology. This transition was fueled by notable advancements in AI technology and an increasing ease of access to AI tools.  With AI at the front of public attention and imagination, there is a growing sense of possibility but also anxiety around AI.  AI tools support truly novel workflows, allowing people to survey and capitalize on data at previously unseen scale with ease.  But the very flexibility of these tools, their novelty and breadth of application, makes them hard to understand fully.  Exactly how to use these new tools is a non-obvious, non-trivial question.
-Nowhere are these developments more keenly felt than in universities.  Academia, with its traditions of scholarly exploration, argumentation from data, and the free exchange of ideas, is uniquely situated to make use of AI.  However, the same challenges obtain in universities as anywhere else, perhaps more so—there is a sense that AI presents a singular opportunity for academia, but how to meet this opportunity is a profound challenge.  In light of this challenge, university faculty, staff, and administrators have begun to organize their thinking and efforts, forming committees, research programs, and initiatives to study how to integrate AI into their work.  2024, it seems, will be a watershed year for the fate of AI in academia.
-As a scholarly unit with a huge portfolio of machine-readable data and a history of technical innovation, the Miller Center of Public Affairs at UVA is poised to find uses for AI that both increase the impact of its work and that catch the public attention.   Without any formal deliberation, Miller Center leadership and staff have already recognized that AI presents us with a chance to grow the impact of our work.  In terms of outward-facing impact, there is a sense that AI will help us share our results more broadly than before and with greater effect.  In terms of internal workflows, Miller Center scholars and staff already use AI on a daily basis (as of 2024 everyday software such as Google, MS Word, and Adobe Photoshop all use AI), and it seems unlikely for the footprint of AI on our workflows to shrink.
+In 2023, Artificial Intelligence (AI) decisively stepped out of the shadows of theoretical computer science and into the limelight of practical, impactful technology. This transition was fueled by notable advancements in AI technology and an increasing ease of access to AI tools.  With AI at the front of public attention and imagination, there is a growing sense of possibility but also anxiety around AI.  AI tools support truly novel workflows, allowing people to survey and capitalize on data at previously unseen scales.  But the power of these tools and their novelty makes them hard to understand.  Exactly how to use these new tools is an urgent question without obvious answers.
+
+Nowhere are these developments more keenly felt than in universities.  Academia, with its traditions of scholarly exploration, argumentation from data, and the free exchange of ideas, is uniquely situated to make use of AI.  However, the same challenges obtain in universities as anywhere else, perhaps more so—there is a sense that AI presents a singular opportunity for academia.  But how to meet this opportunity is a profound challenge.  In light of this challenge, university faculty, staff, and administrators have begun to organize their thinking and efforts, forming committees, research programs, and initiatives to study how to integrate AI into their work.  2024, it seems, will be a watershed year for the fate of AI in academia.
+
+As a scholarly unit with a huge portfolio of machine-readable data and a history of technical innovation, the Miller Center of Public Affairs at UVA is poised to find uses for AI that both increase the impact of Miller Center work and that catch the public attention.   Miller Center leadership and staff have already recognized that AI presents us with a chance to grow the impact of our work.  In terms of outward-facing impact, there is a sense that AI will help us share our results more broadly than we could before.  In terms of internal workflows, Miller Center scholars and staff already use AI on a daily basis (as of 2024 everyday software such as Google, MS Word, and Adobe Photoshop all use AI), and it seems unlikely that the footprint of AI on our workflows to shrink).
+
 To help synthesize these issues and to recommend a strategic posture with respect to AI, Miller Center leadership commissioned this white paper.  The goal of the paper is twofold:
 
 \begin{enumerate}
@@ -40,65 +45,445 @@ To help synthesize these issues and to recommend a strategic posture with respec
 \item To propose a slate of possible projects that would bring AI technologies to bear on Miller Center work in tangible, impactful ways.
 \end{enumerate}
 
-
-The paper starts with background and crucial definitions for understanding AI as it pertains to Miller Center priorities and work.  A high-level census of Miller Center data follows.  While tools such as ChatGPT are fully useable without any particular data requirement, more advanced applications of AI require data in sufficient quantity and of high quality.  The aim of the data census is to give a basis for understanding what kinds of model training or evaluation would be feasible for the Miller Center.  The final section of the paper enumerates several AI projects that the Miller Center could undertake.  Our goal in this enumeration is to offer projects of varying ambition and varying risk, from simple “low-hanging fruit” to cutting-edge deployments that would entail research activity in their own right.  Overall, our hope is to give a sense of what is possible for the Miller Center, in efforts to spark a conversation about how best to move forward.
+This paper starts with background and crucial definitions for understanding AI as it pertains to Miller Center priorities and work.  A high-level census of Miller Center data follows.  The aim of the data census is to give a basis for understanding what kinds of model training and evaluation would be feasible for the Miller Center.  The final section of the paper enumerates several AI projects that the Miller Center could undertake.  Our goal in this enumeration is to offer projects of varying ambition and varying risk, from simple ``low-hanging fruit" to cutting-edge deployments that would entail research activity in their own right.  Overall, our hope is to give a sense of what is possible for the Miller Center, in efforts to spark a conversation about what is desireable.
 
 
 \section{Definitions and Descriptions of Data Science and Artificial Intelligence}\label{section.definitions}
-This whitepaper is concerned with how modern advances in computing can be brought to bear on the Miller Center’s goals and research problems.  The advances we consider occupy the space denoted by terms such as data science and artificial intelligence (AI).  In this section we offer working definitions of these terms and related vocabulary.
-
-\subsection{Data Science}\label{section.definitions.data-science}
-The School of Data Science (SDS) at UVA defines data science as “the study of data and the methods used to learn from data.” \cite{sds:2023}  In the SDS formulation, broad definition entails several more focused types of activity, including:
-
-\begin{itemize}
-\item Research and development on statistical prediction models.
-\item Methods and best-practice in computing that support large-scale operations on data.
-\item Advanced data visualization methods.
-\item The study of how data can best impact society.
-\end{itemize}
-
-To contextualize their work, SDS explains that “Much of our research uses statistical, computational, and philosophical principles to enhance ongoing collaborations …[with other departments and fields].”  In other words, data science often plays a supporting role in the research process.  Instead of presenting a fully formed view of research in its own right, data science is essentially a set of principles and methods that allow us to use tools (statistical prediction, visualizations, etc.) in our own work in ways that have proven to yield value.
+To ground our discussion of AI and its application to the Miller Center's work, this section offers definitions and basic vocabulary.  Each of the terms listed in this section is complex and multifaceted.  Our aim in defining these terms is to give all readers a shared sense of how each term fits into this paper.  That is, our goal is not so much to give conclusive definitions of each term, but instead to explain how each term will fit into the discussion presented specifically in this white paper.
 
 
 \subsection{Artificial Intelligence}\label{section.definitions.artificial-intelligence}
-Though the term Artificial Intelligence (AI) was coined in the 1940’s, it took on new meaning in 2022, when OpenAI released their chatbot, ChatGPT.  What we currently call artificial intelligence is best understood as the confluence of three related developments:
+Though the term Artificial Intelligence (AI) was coined in the 1940’s, it took on new meaning in recent years.  AI used to refer to systems that relied on symbolic logic to mimic human inference.  Now, people talking about AI are usually referring to systems that rely on massive data and statistical models to mimic human creativity.  What we currently call artificial intelligence is best understood as the confluence of three related developments:
 
 \begin{itemize}
 \item Cheap, plentiful computation has become pervasive.  This makes once-impossible computational problems tractable. Cloud computing and advanced networking make it simple to build heroically powerful supercomputers.
 \item Electronic data is abundant and inexpensive.  The internet has reached a size and a level of professionalism in its technical underpinnings that make it feasible to acquire, store, and recall data on a scale that has never been possible before.
-\item Deep learning expanded the value of machine learning. Research in machine learning has matured in a way that allows programmers to build predictive models that that solve human problems with previously unseen accuracy and flexibility.   
+\item Deep learning expanded the power of machine learning. Research in machine learning has matured in a way that allows programmers to build predictive models that that solve human problems with previously unseen accuracy and flexibility.   
 \end{itemize}
 
-When people talk about AI today, they are usually talking about this trifecta, an intersection of historical events that together allow computers to do things that we recognize as wholly novel, tasks that were formerly limited to human agency.
+Today, discussions of AI usually concern this trifecta, an intersection of historical events that together allow computers to do things that we recognize as wholly novel, tasks that were formerly limited to human agency.
 
-For the remainder of this whitepaper, we will use the term \emph{artificial intelligence} to refer to the full breadth of this phenomenon.  That is, we will use AI to describe both novel inferential systems and the milieu in which they have been developed—\emph{AI, for our purposes, is the intersection of data-intensive computation, data-centric computational best practice, and the deep learning models that arise from these practices.}
+For the remainder of this white paper, we will use the term \emph{artificial intelligence} to refer to \emph{machine learning systems that use massive-scale data to approximate human skill on creative tasks such as writing, editing, and data analysis.}.   This definition is also sometimes called \emph{generative AI} because these AI systems are capable of generating novel artifacts such as texts, images, and audio recordings.
 
 
-\subsection{Neural Networks and Deep Learning}\label{section.definitions.deep-learning}
-The term \emph{machine learning} refers to the practice of training computers to recognize patterns in order for them to make predictions or other inferences.  Machine learning is a well-established academic field, straddling computer science and statistics.  In the early 2000’s, the state of the art in machine learning suddenly and fundamentally changed, when researchers sparked a novel innovation—\emph{deep learning.}  Deep learning has become the mainstay of modern machine learning, and it forms the backbone of the current generation of AI systems.
+\subsection{Deep Learning}\label{section.definitions.deep-learning}
+The term \emph{machine learning} refers to the practice of training computers to recognize patterns from data.  Machine learning is a well-established academic field, straddling computer science and statistics.  In the early 2000’s, the state of the art in machine learning suddenly and fundamentally changed, when researchers sparked a novel innovation—\emph{deep learning.}  Deep learning has become the mainstay of modern machine learning, and it forms the backbone of the current generation of AI systems.
 
-The hallmark of deep learning is the size and structure of its models.  Earlier machine learning algorithms used training data to learn a relatively small number of model parameters.  These parameters were essentially weights, and they allowed a system to make inferences.  For instance, a classical email spam filter guessed the status (spam or non-spam) of an incoming message by observing the word tokens in the message.  The filter would look up how strongly each word is associated with spam messages versus non-spam messages.  By summing these weights over the terms in a message, the system could reasonably predict the likelihood that a person would judge the message to be spam.  In this scenario, the model consists of two weights (spamminess and non-spamminess) of each word in the English language (assuming the user is an English speaker), on the order of tens of thousands of parameters.  Different algorithms varied in how they estimated these weights.  But the basic structure of the model (a pair of weights per word type) and the operation for inference (a weighted sum) were shared by most methods.
+The hallmark of deep learning is the size and structure of its models.  Earlier machine learning algorithms used their training data to estimate a relatively small number of model parameters.  For instance, a classical email spam filter guessed the status (spam or non-spam) of an incoming message by observing the word tokens in the message.  The filter would look up how strongly each word is associated with spam messages versus non-spam messages.  (Each word's weight was a parameter of the model.). By summing these weights over the terms in a message, the system could reasonably predict the likelihood that a person would judge the message to be spam.  In this scenario, the model consists of two weights (spamminess and non-spamminess) for each word in the English language (assuming the user is an English speaker)--on the order of tens of thousands of parameters.  Different algorithms varied in how they estimated these weights.  But the basic structure of the model (a pair of weights per word type) and the operation for inference (a weighted sum) were shared by most algorithms.
 
 Deep learning fundamentally changed this state of affairs.  Instead of tens of thousands of parameters, deep learning models have millions or billions, and in some cases trillions, of parameters.  As in older models, deep learning has weights analogous to those described above; in a deep learning email filter, we would indeed see weights for each word in the English language.  But in addition to these, deep learning contains armies of secondary parameters.  Collectively, these so-called “hidden layers” of the model capture relationships between observed variables such as words.  This architecture allows, for instance, a deep learning model to learn that the phrase \emph{machine learning} is a single concept, an idea greater than the sum of its lexical parts.  This novel architecture qualitatively changed the sophistication and expressiveness of machine learning models.
 
 
+
 \subsection{Large Language Models}\label{section.definitions.llms}
-Much of the hype around AI concerns so-called large language models (LLMs).  As their name suggests, LLMs are deep learning models that attempt to mimic human linguistic behavior.  OpenAI’s GPT, Google’s Bard, and Facebook’s Llama are all LLMs.  The accuracy and flexibility of LLMs is perhaps the most striking development in the landscape of current AI research and development.  Due to the Miller Center’s focus on scholarly communication and political insight, LLMs will also be of special interest as we consider how the center can make use of AI in the future.
+Much of the hype around AI concerns so-called large language models (LLMs).  As their name suggests, LLMs are deep learning models that attempt to mimic human linguistic behavior.  OpenAI’s GPT-4, Google’s Gemini, and Facebook’s Llama are all LLMs.  The accuracy and flexibility of LLMs is perhaps the most striking development in the landscape of current AI research and development.  Due to the Miller Center’s focus on scholarly communication and political insight, LLMs will also be of special interest as we consider how the center can make use of AI in the future.
 
-A particularly important distinction between older models and LLMs is that LLMs are trained to perform well on a variety of linguistic tasks, while older models were narrowly scoped.  In our example above we mentioned an email spam filter.  This is a classic example of older-generation machine learning.  Such a filter is intended to be used in a narrow setting, for a single task.  On the other hand, LLMs like GPT or Llama model general linguistic fluency.  They can perform well on a variety of loosely structured tasks such as summarization, translation, or even writing from scratch.  In fact, an interesting result of modern AI is that researchers often do not know what tasks their models will do well on, and an import goal of current research is finding and demonstrating novel uses of LLMs.  This is likely to be a part of the work we at the Miller Center undertake as we explore AI suitability for our needs.
+A particularly important distinction between older models and LLMs is that LLMs are trained to perform well on a variety of linguistic tasks, while older models were narrowly scoped.  In our example above we mentioned an email spam filter.  This is a classic example of older-generation machine learning.  Such a filter is intended to be used in a narrow setting, for a single task--all it does is guess if incoming email messages are spam.  On the other hand, LLMs like GPT-4 or Llama model general linguistic fluency.  They can perform well on a variety of loosely structured tasks such as summarization, translation, or even writing from scratch.  In fact, an interesting result of modern AI is that researchers often do not know what tasks their models will do well on, and an important research goal is finding and demonstrating novel uses of LLMs.  This is likely to be a part of the work we at the Miller Center undertake as we explore AI suitability for our needs.
 
-This new-found model fluency and flexibility is partly due to the novel model structure afforded by deep learning.  Without deep learning’s vast architectural complexity, LLM’s would be unable to encode human knowledge so accurately.  But the other crucial factor in this development is an abundance of training data.  Older models, with parsimonious structures, could be trained with relatively small sets of data.  LLMs, on the other hand, require terabytes, even petabytes of data before they can perform well.  Figure 1 shows the growth of LLM parameter spaces between 2018 and 2023\footnote{Information about the evolution of model size is available in several sources in this paper’s Related Reading section, such as \cite{shazeer:2017, wei:2022}, Lepkin at al. (2021) and Wei et al. (2022).}.  Early models such as GPT-1 learned on the order of 100 million parameters, while the current state of the art (e.g. GPT4) boasts over 100 trillion parameters.  This increase has improved the accuracy and fluency of LLMs.  But increasing model size demands a corresponding increase in training data.  Training data on the order of 10 terabytes was common in 2015.  But current models demand multiple petabytes to reach a stable, saturated status.  Because these models require so much data to reach their potential, they are expensive to build, and an important fact of modern AI work is that instead of training new models for each deployment, it is incumbent on AI professionals to find creative ways to re-use pre-trained models.
+This newfound model fluency and flexibility is partly due to the novel model structure afforded by deep learning.  Without deep learning’s vast architectural complexity, LLMs would be unable to encode human knowledge so accurately.  But the other crucial factor in this development is an abundance of training data.  Older models, with more parsimonious structures, could be trained with small sets of data.  LLMs, on the other hand, require terabytes, even petabytes of data before they can perform well.  Figure \ref{figure.llm_size} shows the growth of LLM parameter spaces between 2018 and 2023\footnote{Information about the evolution of model size is available in several sources in this paper’s Related Reading section, such as \cite{shazeer:2017, wei:2022}.}.  Early models such as GPT-1 learned on the order of 100 million parameters, while the current state of the art (e.g. GPT-4) boasts over 100 trillion parameters.  This increase has improved the accuracy and fluency of LLMs.  But increasing model size demands a corresponding increase in training data.  Training data on the order of 100 gigabytes was common in 2015.  But current models demand multiple terabytes to reach a stable, fully trained state.  For instance, OpenAI has published results showing that their GPT-3 model required 45 terabytes (and \$100M) for proper training \cite{brown:2020}. Because these models require so much data to reach their potential, they are expensive to build, and an important fact of modern AI work is that instead of training new models for each deployment, it is incumbent on AI professionals to find creative ways to re-use pre-trained models.
+
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics{./figures/llm_params.png}
-\caption{Large Language Models, 2012-2023.}
-\label{default}
+\caption{Large Language Models, 2018-2023.}
+\label{figure.llm_size}
 \end{center}
 \end{figure}
 
 
-\subsection{Foundation Models, Model Fine-Tunings and Retrieval-Augmented Generation}\label{section.definitions.foundation-models}
+\subsection{Foundation Models and Model Fine-Tuning}\label{section.definitions.foundation-models}
+
+Because current LLMs are so expensive and time-consuming to train, people often call them \emph{foundation models.}  A foundation model is a deep learning model (often an LLM, though others operate on image or audio tasks) that is sufficiently performant and sufficiently flexible to adapt to a wide range of tasks.  
+
+Once we choose a foundation model upon which to base our work, the second, and often the most challenging task, lies in getting our foundation model to treat our problems and data with sufficient sensitivity.  For instance, GPT-4 (with over 100 trillion parameters) is very powerful.  But its exposure to, say, information about presidential history, is only fleeting.  To use GPT-4 to perform tasks on Miller Center data, it is likely that we would need to supplement its knowledge in efforts to focus its output on topics relevant to our audience.
+
+There are numerous ways to train a foundation model to work well in a specific setting.  The most direct approach is called \emph{model fine-tuning.}  This task involves deploying a local copy of the model and showing it a corpus of training data indicative of the task at hand.  Researchers have shown that even a modest amount of training data (on the order of 50-100 training examples) can quickly focus a foundation model on almost any task \cite{liu:2022}.
+
+\subsection{Retrieval-Augmented Generation}\label{section.definitions.rag}
+Unfortunately even fine-tuned models make mistakes.  An important point to understand about LLMs is that they contain no database of facts, no knowledge about the world aside from their understanding of language.  When LLMs create text, they form statements that are statistically likely, but no additional fact checking is part of their standard operating procedure.  Fortunately, an LLM's notion of linguistic appropriateness is so deep that it is often enough to keep them correct and factual.  But occasionally, LLMs will \emph{hallucinate}, creating text that seems plausible but is factually wrong.  In settings where accuracy (as opposed, say, to creativity) is crucial, this tendency requires us to add guardrails when deploying LLMs.
+
+Perhaps the most broadly implemented guardrail architecture is known as \emph{retrieval-augmented generation} (RAG).  A RAG system consists of an LLM and a more traditional search engine.  When a user submits a prompt to a RAG system, the interaction runs like this:
+\begin{enumerate}
+\item The prompt is presented to the LLM, which translates the user input into one or more queries for the search engine.
+\item The search engine scours its database, retrieving documents that appear to contain an answer to the user's queries.
+\item The LLM reads and summarizes the retrieved documents, along with the user's original prompt.  Based on these texts, the LLM creates a summary that answers the original question.
+\end{enumerate}
+The chief point to understand about RAG is that the LLM is only in charge of the natural language portion of the task--translating prompts and interpreting documents.  The factual matters are handled by the search engine.  So long as the search engine has indexed accurate documents, the end user should be able to interact with the system via natural language while also receiving correct information.  By tying the LLM's output to factual data from a document corpus, a RAG system can usually avoid the hallucination problem.
+
+
+
+
+\subsection{Prompt Engineering}\label{section.vocab.prompt-engineering}
+In the context of AI and LLMs, a \emph{prompt} is the information an end user gives to a model to articulate his or her information need.  Research has shown that the quality of a prompt has a huge effect on the quality of a model's output.  In fact, improving prompt quality has been shown to be more important for output quality than model size or fine-tuning. \cite{white:2023}.  
+
+The practice of crafting a high-quality AI prompt is known as \emph{prompt engineering}.  Prompt engineering is so fundamental that alongside its general ChatGPT documentation, OpenAI maintains documentation solely dedicated to prompt engineering\footnote{\url{https://platform.openai.com/docs/guides/prompt-engineering}}.  Likewise, many courses are available to help people improve their prompt engineering skills\footnote{e.g. \href{https://www.coursera.org/learn/prompt-engineering}{Coursera Prompt Engineering for ChatGPT}, \href{https://www.udemy.com/course/prompt-engineering-for-ai}{Udemy prompt engineering course}, \href{https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/}{Deeplearning.ai course on prompt engineering for developers}. }.
+
+
+
+ 
+
+
+\subsection{Concluding Thoughts about Vocabulary}\label{section.definitions.closing}
+This section has introduced numerous terms of art.  Of chief importance, however, is the fact that collectively, these terms have a great deal in common.  They refer to a recent, ongoing revolution in the computation over data.  This revolution has three hallmarks:
+\begin{itemize}
+\item It is due to the confluence of cheap computation and cheap data storage.
+\item It benefits from startling advances in statistical sophistication of freely available computing tools.
+\item It is structured by hard-won best practices in using computation and data to support the work of scholars and decision-makers.
+\end{itemize}
+In the remainder of this white paper, we will have occasion to refer to the entirety of this zeitgeist.  For lack of a better term, we will call this entire phenomenon \emph{AI}.  This large umbrella term, in the rest of this white paper, will refer to deep learning models deployed in configurations that allow people to capitalize on data at a massive scale.
+
+
+\section{Census of Miller Center Data}\label{secion.data}
+The coin of the realm in modern AI applications is machine-readable data.  When considering how AI can be useful to an enterprise, the organization’s data drives the discussion in at least three ways:
+\begin{enumerate}
+\item The topics, genres and themes expressed in the data (along with the enterprise's mission and driving interests) will dictate the questions and prompts that will be posed against AI systems built by the organization.
+\item Rights management and other questions of data accessibility and reusability will structure how the data can be used during AI training and deployment.
+\item The magnitude, structure and formats of the data will bear on what kinds of AI tasks the unit can complete (e.g. model training vs. fine-tuning).
+\end{enumerate}
+Because data are central to the details of deploying AI, this section offers a census of the Miller Center’s machine-readable data holdings.  Our goal here is to describe the “crown jewels” of Miller Center data, not to enumerate every byte of data we own.  Collectively, these descriptions will help us structure subsequent thinking about what types of inquiry and engineering would be useful and practical. for the Miller Center
+
+
+\subsection{Presidential Recordings}\label{section.data.prp}
+The Miller Center is unique in its collection of original and secondary information concerning audio recordings of U. S. presidents.  We have published these recordings, as well as archival finding aids describing them, on \url{millercenter.org}.  Additionally, scholars in the Presidential Recordings Project (PRP), continually create scholarly transcripts (in TEI XML format) of the tapes, which they publish in partnership with UVA Press.   The original recordings and finding aids are in the public domain.  Due to licensing restrictions, the PRP transcriptions of the tapes are copyright protected.   
+
+Table \ref{table.data.prp} outlines the size of the presidential recording data.  The table is based on the holdings in \href{millercenter.org}{mc.org}.  This is admittedly not the full slate of presidential recording data, but the number is close to the total available and gives an accurate sense of the corpus’ dimensions.  The ``Total Hours" column lists the total running time of all available recordings.  The ``Number of Recordings in mc.org” column shows the number of discrete conversations currently (as of this writing) housed on our website.  This figure is equal to or less than the full conversation count, since in the case of a few presidents, we do not yet have all conversations online.  
+
+\begin{table}[htp]
+\caption{Miller Center Data Holdings: Presidential Recordings.}
+\begin{center}
+\begin{tabular}{ p{2in} l l }
+\toprule
+President				&	Total Hours		&	\#  in $\mathtt{mc.org}$	\\
+\midrule
+ Franklin Roosevelt 		& 	8 				& 	23 \\ 
+ \midrule 
+ Harry Truman 			& 	10 				& 	20 \\  
+ \midrule
+ Dwight Eisenhower	 	& 	15 				& 	36   \\
+ \midrule
+ John F. Kennedy	 	& 	260 				& 	386   \\
+ \hline
+ Lyndon Johnson	 	& 	800 				& 	9,497   \\
+ \midrule
+ Richard Nixon		 	& 	3,700			& 	23,136   \\
+\bottomrule
+Total					&	4,793			&	33,098	\\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{table.data.prp}
+\end{table}%
+
+In addition to the public domain data described in Table 2, PRP scholars at the Miller Center have published a subset of conversations, along with carefully edited transcripts, via the UVA Press’s Presidential Recordings Desktop Edition (PRDE).  Table 3 outlines the PRDE holdings, as of this writing.  The total running time of the 4,547 recordings in PRDE is approximately 516 hours.  Currently, access to the PRDE transcripts is limited to subscribers only.  An important area of collaboration in the future will be discussing with UVA Press options for widening the availability of these data.
+
+\begin{table}[htp]
+\caption{Number of Recordings in PRDE.}
+\begin{center}
+\begin{tabular}{ p{1.75in} p{2in}}
+\toprule
+President				&	Number of Conversations		\\
+\midrule
+ John F. Kennedy	 	& 	340 				\\
+\midrule
+ Lyndon Johnson	 	& 	3,972 				\\
+\midrule
+ Richard Nixon		 	& 	235			 \\
+\bottomrule
+Total					&	4,547		\\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{table.data.prde}
+\end{table}%
+
+In terms of data formats, the recordings are stored in mp3 at a minimum (many are stored in multiple formats).  Finding aids are in modern PDF format, which means that it is easy to extract the raw text from them.  The conversations listed in Table \ref{table.data.prde} have accompanying TEI XML-encoded transcripts.  However, these are copyright protected, so using them in AI systems may be difficult.   
+
+\subsection{Presidential Oral Histories}\label{section.data.pohp}
+As of December 2023, the Presidential Oral History Project (POHP) at the Miller Center has conducted over 700 interviews, spanning eight programs (Carter, Reagan, Bush 41, Clinton, Bush 43, Obama, Hillary Clinton, and Edward M. Kennedy).  Each of these interviews generates numerous documents, including the raw audio recording of the interview, interviewee briefing books, and the final transcript.  Likewise, each of these documents is a rich, long-form piece of scholarship or primary-source history.  Due to the details of each interview, some of these documents have been deeded and cleared for publication, while others remain confidential.  
+
+The sensitive nature of undeeded interviews, and indeed the personal character of \emph{all} POHP data make it unique among the Miller Center’s holdings.  For the purposes of this data census, an exhaustive accounting of these data is unnecessary.  Instead, for our purposes it is sufficient to put into the foreground the following statistics:
+\begin{itemize}
+\item Total POHP programs:  8
+\item Total interviews conducted as of this writing: $>$700
+\item Number / size (in GB.) of interviews published on millercenter.org:  504 / 2.5GB.
+\item Number / size (in GB) of briefing books published on millercenter.org: 348 / 0.85 GB.
+\item Number of PDF pages of interviews published on millercenter.org: 25,634
+\end{itemize}
+We focus here on the subset of OHP data that has been published on the web because these data have been cleared and would form the basis for inclusion in any AI model.  The remaining OHP interviews (i.e. those not shown in this section's enumeration) may find their way into an AI system at a later time.  But until they are deeded, these documents cannot be added to any proposed AI system.
+
+ 
+
+
+\subsection{Miller Center Advancement and Communications Teams}\label{section.data.advancement}
+The Miller Center 's Advancement team maintains several databases to manage their contacts, track giving and fundraising, and to curate our various email lists.  However, these official fundraising databases are owned by University Advancement and are not directly available for use in any third-party AI applications.  In this section, then, we focus on the Advancement-related (and Communications-related) resources that the Miller Center retains direct control over.
+
+A joint effort by Advancement and Communications stores data about every public event that the Miller Center hosts.  In a variety of systems (\url{millercenter.org}, \href{eventbrite.com}{EventBrite}, and Marketing Cloud), these teams store, for each event:
+\begin{itemize}
+\item Metadata about the event (title, abstract, participants, location)
+\item Registrations
+\item Which registrants attended the event (names and demographics)
+\end{itemize}
+These data are highly structured--spreadsheet data containing each of these data types.  
+
+Another crucial source of Miller Center data is our flagship website, \url{millercenter.org} (mc.org).  We broke out portions of mc.org in previous sections (PRP and POHP).  But Table \ref{table.data.mcorg} re-lists these earlier numbers in order to give a full accounting of the website's holdings in one place.
+
+
+\begin{table}[htp]
+\caption{mc.org Data Holdings.}
+\begin{center}
+\begin{tabular}{ p{1.75in} p{2in}}
+\toprule
+Page Type				&	Number of Pages in mc.org		\\
+\midrule
+American Forum			&	100		\\
+\midrule
+General Article Page			&	2,807	\\
+\midrule
+Public Event				&	3,021	\\
+\midrule
+Expert					&	71		\\
+\midrule
+MC Presents				&	150		\\
+\midrule
+Scroller Page				&	167		\\
+\midrule
+President Bio				&	45		\\
+\midrule
+AmPres Bio				&	107		\\
+\midrule
+Presidential Interview		&	536		\\
+\midrule
+Presidential Recording		&	33,098	\\
+\midrule
+Presidential Speech			&	1,050	\\
+\bottomrule		
+Total						& 	41,152	\\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{table.data.mcorg}
+\end{table}%
+
+
+
+\subsection{Miller Center Data in Amazon Web Services}\label{section.data.aws}
+Miller Center IT staff stores the lion’s share of our data in Amazon Web Services (AWS).  This catch-all descriptor actually contains three subcollections of data.  First, AWS contains the multimedia content that backs \url{millercenter.org}—items like POHP transcript and briefing book PDFs and PRP audio recordings.   Secondly, we use AWS to house backups of our raw video footage and assets (metadata, images, etc.) related to editing together the final versions of our public event videos.  Lastly, because we use AWS as a backbone of millercenter.org, there is a large body of transaction log data in AWS.  These logs capture how end users use our materials on millercenter.org.  For example, the logs can tell us which presidential speeches, PRP recordings, and POHP interviews are requested most often.
+
+Table \ref{table.data.aws} lists the main holdings in AWS.  
+
+\begin{table}[htp]
+\caption{Miller Center Data Holdings: Amazon Web Services (AWS).}
+\begin{center}
+\begin{tabular}{l l l }
+\toprule
+Bucket				&	Items		&	\#  Size	\\
+\midrule
+						\multicolumn{3}{c}{Public}		\\
+\midrule
+ POHP Briefing Books	&	303			&	0.88 GB \\
+ \midrule
+ POHP Transcripts		&	2,073		&	2.3 GB	\\
+ \midrule
+ Presidential Speeches	&	9,439		&	280.5 GB  \\
+ \midrule
+ PRP Recordings		&	97,124		&	2,300 GB	\\
+ \midrule
+ FirstYear				&	1,091		&	0.2 GB	\\
+ \bottomrule
+  Total				&	121,229		&	3,983.82 GB 	\\
+ \bottomrule
+ 						\multicolumn{3}{c}{Backup/Private Data}		\\
+ \midrule
+ Misc					&	11,199		&	1,400 GB	\\
+\midrule
+ Transaction Logs		&	1.81M		&	4.3 GB \\
+\midrule
+ Video Backups			&	448,832		&	620,000 GB \\
+\bottomrule
+ Total				&	2.26M		&	62004.34 	\\
+\bottomrule
+
+\end{tabular}
+\end{center}
+\label{table.data.aws}
+\end{table}%
+
+
+\subsection{Video Housed in YouTube}\label{section.data.youtube}
+The Miller Center has a large collection of digital video, containing recordings of our public events.  The raw assets associated with this collection are numerous and of varying interest.  But a baseline accounting of our digital video assets is available by surveying our holdings in \href{https://www.youtube.com/@millercenter32}{YouTube}.  We use YouTube to host public copies of our final, edited event programs.  Table \ref{table.data.youtube} describes our YouTube data. 
+
+
+\begin{table}[htp]
+\caption{YouTube Video Holdings.}
+\begin{center}
+\begin{tabular}{p{1.15in} p{.75in} p{.75in} p{.75in} p{.75in} p{.75in}}
+\toprule
+Source		&	Num. Videos		&	Num. Transcripts	&	Avg. Video Length	&	Avg. Transcript Size	&	Total Size of Transcripts	\\
+\bottomrule
+Main Channel	&	651			&	627			&	1 hr				&	168k				&	52 MB	\\
+\midrule
+Am. Forum	&	820			&	776			&	1 hr				&	18k				&	6.5 MB	\\
+\bottomrule
+Total			&	1,471		&	1,403		&					&					&	58.5 MB	\\
+\bottomrule					
+\end{tabular}
+\end{center}
+\label{table.data.youtube}
+\end{table}%
+
+
+\subsection{Presidential Speeches}\label{section.data.speeches}
+The Miller Center maintains a corpus of impactful presidential speeches (\url{https://millercenter.org/the-presidency/presidential-speeches}).  This curated collection contains about 1050 speeches, with entries from all 45 U. S. presidents.  These speeches were enumerated as part of Table \ref{table.data.mcorg}, but we describe them in detail in this section due to their vital importance for AI work.  Each speech in the collection contains:
+\begin{itemize}
+\item The speech itself (i.e. a transcript)
+\item Metadata about the speech (President, date, title, location)
+\item An audio recording of the speech (for recent speeches)
+\item A video recording of the speech (for recent speeches)
+\end{itemize}
+Miller Center staff make the editorial decision whether to include each new speech that the President makes.  And occasionally staff elect to include an especially important speech from the past.  So over time this collection grows in size.
+
+While this collection is small, it punches above its weigh because it is often requested by data science and political science scholars as a data set to inform their research.  The presidential speech collection is available for researchers not only via downloading from millercenter.org, but also via our bulk data acquisition interface, api.millercenter.org.  Our data API serves Miller Center data in machine-readable formats.  Maintaining this second download avenue is beneficial in two ways:
+\begin{enumerate}
+\item It allows researchers to download large volumes of our data without increasing the load on our website servers.
+\item It exposes our data to researchers in JSON format—a file encoding that is standard in the data science world and which saves consumers the need to remove formatting and encoding information.
+\end{enumerate}
+We unveiled \url{api.millercenter.org} in 2022 and since then it has become quite popular, with, on average, over 50 downloads per day of the speech collection.
+
+
+\subsection{Closing Thoughts on Miller Center Data}\label{section.data.closing}
+As we begin to consider AI modeling challenges and opportunities for the Miller Center, a high-level review of this section will be helpful.  Figure \ref{figure.data_venn} schematizes the various data sources that would be available if the Miller Center undertook a language modeling effort of its own.  The left portion of the figure shows six corpora that we described in this section.  The overlaps between the portions show real-world overlaps.  For instance, the PRP transcripts are in part included in the contents of mc.org.  Likewise with the Oral History transcripts--this content is duplicated on mc.org.  On the other hand, the OHP briefing books, while linked to from mc.org, are themselves completely separate from the website.
+
+Figure \ref{figure.data_venn} shows that we have approximately 43,000 ``pages" of Miller Center-specific text.  This is a large amount of text for tasks like model fine-tuning and evaluation.  It would also make an excellent RAG search index.  But for more ambitious modeling tasks we may need to flesh out our local holdings with additional data sources, since deep learning models do require such vast training corpora.  Luckily, the research community has made several large English language data sets available.  Three of these are shown in the right half of Figure \ref{figure.data_venn}.  The topmost block in that figure refers to the familiar English language \href{en.wikipedia.org}{wikipedia} database.  ``The Pile" refers to an 800-GB corpus that was used to train several LLMS such as LLama and Palm \cite{pile:2020}.  The C4 entry refers to the ``Colossal Clean Crawled Corpus" \cite{c4:2021}.  These resources have all been created, at least in part, in efforts to allow organizations like the Miller Center to supplement their local data holdings in order to build corpora of sufficient size to train LLMs.
+
+
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.5]{./figures/data_venn.png}
+\caption{Available Data Sources for Training Language Models. N.B. Items are not drawn to scale.}
+\label{figure.data_venn}
+\end{center}
+\end{figure}
+
+
+\section{AI Initiatives Elsewhere on Grounds}\label{section.grounds}
+Because AI work tends to be resource-intensive, finding productive points of collaboration and cross-pollination is an important step as we endeavor to formulate our plans and ambitions in this space.  Not surprisingly, UVA has numerous AI initiatives in the works and in recent conclusion.  This section outlines the most relevant of these initiatives to this white paper, with the goal of identifying possible avenues for future collaboration and increasing our knowledge of expertise available on Grounds.
+
+Currently, the most ambitious entity in the AI space at UVA is the Provost’s Futures Initiative.  The chief aim of the Futures Initiative is to develop a proposal for university leadership that will help UVA work proactively towards a future ushered in by disruptive technologies such as AI and large language models.  A core part of the Futures Initiative is the Futures Initiative Group, a body of internal and external UVA thought leaders that is tasked with strategic thinking about how the work of universities is likely to change in the near future.  
+
+During spring 2024 the aim of the Futures Initiative Group is to form a Future Initiatives Working Group (FIWG), consisting of thought leaders from across Grounds.  The membership of this group will be seeded by recommendations from deans and center directors, and the goal of the group is to pursue focused questions at a subcommittee level.  The formation of the FIWG is an opportunity for the Miller Center to join the larger discussion about AI by nominating personnel for a subcommittee.  This would have the twin benefits of positioning us at an important table and giving us a way to seek points of cross-Grounds collaboration in our AI work.
+
+A particularly exciting aspect of the Futures Initiative is its inherent interdisciplinarity and its intentional inclusion of partners from the liberal arts.  During an announcement about the Futures Initiative, Dean of the University’s College and Graduate School of Arts and Sciences, Christa Acampora said, “To understand, adapt, and solve these urgent problems, UVA will need to realize even greater interdisciplinarity across academic fields….The liberal arts and sciences are crucial for this project because—now more than ever—we need a more capacious understanding of what is human, more than human, and humane.”  Though AI is first and foremost a technical field, the generous funding of the Futures Initiative (\$1.5M from the Strategic Investment Fund, for the period 2024-2028) shows that at UVA there will be ample room for humanistic players such as the Miller Center to contribute to the discussion of how best to respond to the challenges posed by novel AI technologies.
+
+While the Futures Initiative project is an especially vital focus of AI work on Grounds, other work is also relevant to this white paper.  For instance, Darden and the Batten Institute have joined forces to form \href{https://www.darden.virginia.edu/intelligence}{UVA Darden’s Artificial Intelligence Initiative} (DAII).  Whereas the Futures Initiative Group is intentionally high-level, the DAII is more narrowly scoped, focusing on three main topics:
+\begin{itemize}
+\item AI and Marketing
+\item AI and the Future of Work
+\item AI and Economic Progress.
+\end{itemize}
+To foster critical thinking about these issues, the DAII aims to “[bring] together a diverse, multidisplinary group of leading scholars…to shape the discussion [on Grounds] about artificial intelligence and its related technologies, embracing a holistic perspective.”  Darden’s AI initiative maintains a program of public events related to these three topics, which will be important to stay abreast of for the Miller Center’s own strategic thinking.
+
+Some of the keenest questions about AI’s role at the university center on teaching and learning—how will AI technologies change the experience of students in the future?  In spring of 2023 the UVA Provost’s Office convened a \href{https://provost.virginia.edu/subsite/genai}{Generative AI in Teaching and Learning Task Force}.  The main outcome of this task force was writing a final report (available in the Related Reading appendix attached to this report) that considers how Generative AI will affect teaching and learning in three main ways:
+\begin{enumerate}
+\item What students learn,
+\item How students learn, and
+\item How learning is assessed.
+\end{enumerate}
+The outcome of the Generative AI in Teaching and Learning Task Force is twofold.  First, the task force created a \href{https://provost.virginia.edu/subsite/genai/faqs}{web-based tool} intended to help instructors and students to answer practical questions about appropriate uses of AI in UVA classroom settings.  Second, the task force released a \href{https://provost.virginia.edu/subsite/genai/task-force-report}{final report}, outlining its process and findings.  Characterizing fall 2023 as an inflection point, the task force encourages UVA not to “waste a good crisis,” urging faculty to engage in structured thinking about their own plans and University leadership to supply “significant…administrative support” for the UVA community’s efforts to integrate AI into teaching and learning.
+
+Together, these three initiatives (the Futures Initiative, the Darden AI Initiative, and the Generative AI in Teaching and Learning Task Force) show three important facts about the state of play with respect to AI on Grounds in early 2024:
+\begin{enumerate}
+\item University leadership sees AI and data-centered computing as a strategic opening that merits investment in terms of strategic planning, teaching, and research.
+\item Vital work in this space is being conducted both in centralized and de-centralized initiatives across Grounds.  The Miller Center may want to target initiatives and sub-initiatives (e.g. the FIWG) when formulating its own strategic response to these developments.
+\item The emphatic inclusion of liberal arts stakeholders in the university’s AI planning presents an opening for the Miller Center to claim a seat at the table, as a uniquely positioned unit, at the nexus of humanistic inquiry and cutting-edge technical work.
+\end{enumerate}
+
+
+
+\section{Possible Applications of AI Technology to Advance the Miller Center's Mission}\label{section.applications}
+This section outlines several projects that the Miller Center could undertake to increase its impact and pursue its mission by applying AI technologies.  These proposals are arranged in increasing order of ambition and reach, with the hope that Leadership can get a sense of how we might use AI with different levels of financial and institutional commitment.  
+
+\subsection{Low-Hanging Fruit: Simple Options with High Impact}\label{section.applications.easy}
+
+\subsubsection{Expanding our Data Portal, data.millercenter.org}\label{section.applications.easy.data-portal}
+Currently the data portal serves the text and simple metadata associated with the 1050 speeches in the millercenter.org presidential speech collection.   There are two ways we might expand our data offerings.  
+
+First, we can expand the types of data we serve.  In addition to the presidential speeches, it would be a simple matter to make available the POHP transcripts that we already host on \url{millercenter.org}.  Likewise, for each of the “scrollers” that we host on the Listening to the Presidency website section, we could add the associated transcript to the data portal.  
+
+Second, we could add richer metadata and functionality to the data portal’s underlying REST API.  For example, an important step in most AI work with natural language text is deriving so-called “text embeddings.”  Text embeddings are themselves an AI product.  They represent natural language text in numerical form, such that the text’s underlying semantics become computationally tractable.  Almost all modern AI work involves transforming input text into embeddings as an initial step.  We could increase the utility of \url{data.millercenter.org} by pre-computing text embeddings for all exposed text and then making those embeddings available to clients.  This would greatly enhance the value of our service to downstream researchers.
+
+
+\subsubsection{AI-Informed Advertising and Marketing}\label{section.applications.easy.marketing}
+The Miller Center currently uses an array of technologies to meet its digital marketing needs.  Among other tools, we rely on:
+\begin{itemize}
+\item Google Analytics: A tool that helps us learn which parts of our websites are most impactful and what kinds of sign design decisions lead our visitors to be most satisfied with our materials.
+\item Google Ads: The platform managed by Google that allows us to purchase advertisements to help draw visitors to register for our events and visit our web properties.
+\item Social Media, e.g. Instagram and YouTube: Platforms that let us share content (e.g. video, images, website extracts) widely.
+\item MarketingCloud: The Salesforce tool that we use to manage our bulk email correspondence.  We use this to promote events and to aid in development.
+\end{itemize}
+Each of these tools have, in the last year, received updates that allow them to make use of advances in AI and data science.  In many cases (e.g. Google Analytics and Google Ads), these advances span multiple tools, allowing us, for instance to use our Google Analytics data to improve the targeting of our ads.  
+Our initial experience with these tools have been positive.  Our Google Ad buys have helped us assure large audiences for Miller Center events.  And our recent forays into social media have increased our reach on these platforms tremendously.  It seems plausible, then, that after last year’s roll-outs of novel, AI-based features, that Miller Center staff could extract new value from these tools.
+As an example, to date we have used Google Ads mainly to promote event registration.  This has served us well, and should definitely continue.  However, recent results from marketing literature suggest that an especially effective way to use Google Ads is by maintaining a constant, small-scale ad campaign aimed only at brand awareness.  We might, for instance, maintain a modest campaign that targets people who are likely to enjoy Miller Center web content but who have not yet visited our site.  These kinds of campaigns tend to be very inexpensive and highly effective—drawing new audiences to websites.  While this strategy has a long history of success in the online marketing world, Google has rolled out new tools that use AI to analyze our website content and Google Analytics data to improve its decisions of whom to show our ads to.   A modest outlay (on the order of \$20/month) would give us a good sense of whether a brand-awareness campaign is a good fit for our needs, and whether the new tooling in the Google Ads platform marks a real improvement for us.
+The idea of small brand-awareness ad buy is merely one among many opportunities in this space.  It would allow us to explore this area cheaply and with little commitment.  On the other hand, we could also surely imagine more ambitious marketing-related experiments if the appetite to do so is there.
+
+
+\subsubsection{Informally Integrating AI Tools into Miller Center Work}\label{section.application.easy.daily-work}
+One key aspect of modern AI tools is their broad application.  Knowing when and how to use these tools, and being able to wield them creatively are key skills for people interested in using resources like ChatGPT, Bard, or Dall-E.  To help the Miller Center (ideally scholars and staff) capitalize on the current state of the art, a few simple actions could go a long way.
+
+First, it could be advantageous to schedule a periodic brown bag or informal tutorial on creative applications of AI We could draw on local talent, and optionally invite external guests to participate in such a forum.  One goal might be for a designated staff member (e.g. Miles Efron) to handle at least the first installments of such a brown bag series, with the goal of providing instruction in using these tools for the kinds of tasks that come up often at the Miller Center.  After time, once it has momentum, the series could be opened to guest speakers who could present on their own experiences using AI in their work.
+
+Concomitant with a live instructional series, we could make a live document about AI technologies available to Miller Center staff.  The document could contain, among other things:
+\begin{itemize}
+\item Reviews of online courses on AI Currently, UVA makes numerous trainings available to staff, and highlighting the best of these might be useful.
+\item Especially lucid or exciting reports on AI use in the workplace.
+\item A listing of tools available to Miller Center staff and descriptions of their applications to our work.
+\end{itemize}
+Another, related option for integrating AI into Miller Center work would be to give interested staff access to the OpenAI paid platform, ChatGPT Plus.  ChatGPT Plus is the \$20/month subscription version of OpenAI’s otherwise free ChatGPT service.  For the Miller Center’s purposes, the paid version of the system is attractive mainly due to its “Data Analyst” offering.  OpenAI Data Analyst is a service that allows users to upload files such as Excel spreadsheets and then to engage with ChatGPT to analyze the uploaded material, as in Figure \ref{figure.chatgpt}.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{./figures/chatgpt.png}
+\caption{Sample Interaction with ChatGPT.}
+\label{figure.chatgpt}
+\end{center}
+\end{figure}
+
+\subsubsection{A Public Service: Hosting an Open Database of Presidential Deepfakes}\label{section.applications.easy.deepfakes}
+An increasingly keen problem of public interest is the dissemination of so-called deepfakes—images, audio recordings or videos that purport to be authentic but are in fact fraudulent, usually created by AI tools.  Figure 4 shows (normalized) worldwide web search volume for the term deepfakes, according to Google Trends.  The figure shows that public interest, at least insofar as interest correlates with search volume, in deepfakes has risen steadily since 2018.  To help assess the (un-normalized) scale of Figure 4, we consulted Google Ads, which reports a raw search volume for deepfakes at approximately 1M searches in January 2024. From these data, Google Trends and Google Ads, it is clear that the public interest in deepfakes is high and rising steadily.
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{./figures/deepfakes.png}
+\caption{Google Trends Search Volume for \emph{Deepfakes}, 2017-2024.}
+\label{figure.deepfakes}
+\end{center}
+\end{figure}
+
+The political arena is especially vulnerable to influence by bad actors using deepfakes.  Armed with AI tools, online trolls could manipulate public opinion in at least two ways:
+\begin{enumerate}
+\item By manufacturing fraudulent “evidence” of scandalous or inflammatory statements by public officials or members of sensitive groups.
+\item Inversely, excusing genuine bad behavior by claiming that real evidence is fake.
+\end{enumerate}
+As deepfakes become easier to create and harder to detect, the risks they pose to political discourse will grow more and more worrisome.  Recently, the online magazine UVA today highlighted several scholars on Grounds (from the Center for Politics and the Law School) who are concerned about exactly this intersection \cite{mckenzie:2023}.
+
+An impactful project in this space would be an online database of political deepfakes, a resource for the public to consult when they find online content of dubious authenticity.  The database could operate similarly to the urban legend debunking resource snopes.com, a website associated with the database could accept reports of deepfakes which an editor would then verify and add to the corpus (given appropriate evidence of fraudulence).  The goal would be to provide information about known deepfakes so that stakeholders such as journalists, scholars and informed citizens could find context about the provenance of online fakes.
+
+Hosting such a web-based resource would entail modest technical effort, since it would not require special software and only staffing by easily trainable, possibly student editors.  There are tools online to help editors of the site in their research about putative deepfakes, but the site itself would mainly require human effort to run.  At the time of this writing, there appears to be no resource of this kind online, which provides an opening for the Miller Center to offer a novel service with high public visibility and impact.  Of course, this resource would also stand to become controversial, and it may be outside of the Miller Center’s purview.  However, building and maintaining a public facing deepfake database could be a valuable addition to the Miller Center’s online portfolio. 
+
+
+\subsection{Ambitious, Moonshot-Type Applications}\label{section.applications.hard}
+While our previous section offered simple, practical ways to leverage AI technologies at the Miller Center, in this section, we offer more ambitious recommendations.  AI offers truly transformative opportunities for modern knowledge work; how could the Miller Center marshal AI’s boldest promises to revolutionize its work and qualitatively extend its impact?  This section recommends three approaches.
+
+\subsubsection{Presidential Studies: Data Visualization of Presidential Second Terms}\label{section.applications.hard.dataviz}
+After the 2016 presidential election, the Miller Center undertook an ambitious research project to study the dynamics of presidents’ first years in office—the \href{firstyear2017.org}{FirstYear project}.  FirstYear included an analysis of which observable variables most strongly shape a president’s first year in office.  Due to FirstYear’s success, a follow-up project seems warranted.  Given our current national landscape, a natural successor to FirstYear would be a project that studies presidential second terms in office.  AI and data science tools would be a natural fit as a part of such a project.  
+
+In the FirstYear project, scholars assessed the impact on presidential success of variables such as the composition of congress at election time, the size of the incoming president’s margin of victory, and the presence or absence of crises on the national stage.  During their FirstYear research, Miller Center scholars assessed how and to what extent these variables drove other, dependent variables such as passed legislation and midterm election results.  In a “Second Term” follow-on project, the Miller Center could repeat this style of analysis.  However, given the computational tools currently at our disposal, the nature of this analysis and its eventual output might differ from our first pass at the problem.
+
+A natural role of DSAI technologies in support of such a project would be to build and publish accompanying data dashboards.  The original FirstYear project included numerous graphs, and a follow-on study might benefit from a data dashboard that helps readers make sense of the data that informs that written scholarly result of the work.   From a practical standpoint, this would take the form of an online resource such as the census visualization referred to earlier.  In general, using a modern visualization tool like Tableau for a Second Term project might expand the range of arguments and insights that emerge from the input data.
+
 
 \pagebreak
 \bibliographystyle{apalike}
