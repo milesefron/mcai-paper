@@ -1,5 +1,7 @@
 \documentclass[12pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
 \usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
 
 \usepackage[left=0.75in, right=0.75in, top=1in, bottom=1in]{geometry}   
 \linespread{1.5}
@@ -11,14 +13,46 @@
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb}
 
-%SetFonts
-
-%SetFonts
+\usepackage{algorithm2e}
 
 
-\title{Artificial Intelligence, Data Science Methods, and Strategic Opportunities for the Miller Center}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+\title{Artificial Intelligence and Strategic Opportunities for the Miller Center}
 \author{Miles Efron}
-\date{}							% Activate to display a given date or no date
+\date{
+ Miller Center of Public Affairs \\
+ University of Virginia \\
+ mefron@virginia.edu \\
+ \bigskip
+ \today
+}							% Activate to display a given date or no date
 
 \begin{document}
 \maketitle
@@ -117,7 +151,7 @@ The chief point to understand about RAG is that the LLM is only in charge of the
 \subsection{Prompt Engineering}\label{section.vocab.prompt-engineering}
 In the context of AI and LLMs, a \emph{prompt} is the information an end user gives to a model to articulate his or her information need.  Research has shown that the quality of a prompt has a huge effect on the quality of a model's output.  In fact, improving prompt quality has been shown to be more important for output quality than model size or fine-tuning. \cite{white:2023}.  
 
-The practice of crafting a high-quality AI prompt is known as \emph{prompt engineering}.  Prompt engineering is so fundamental that alongside its general ChatGPT documentation, OpenAI maintains documentation solely dedicated to prompt engineering\footnote{\url{https://platform.openai.com/docs/guides/prompt-engineering}}.  Likewise, many courses are available to help people improve their prompt engineering skills\footnote{e.g. \href{https://www.coursera.org/learn/prompt-engineering}{Coursera Prompt Engineering for ChatGPT}, \href{https://www.udemy.com/course/prompt-engineering-for-ai}{Udemy prompt engineering course}, \href{https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/}{Deeplearning.ai course on prompt engineering for developers}. }.
+The practice of crafting a high-quality AI prompt is known as \emph{prompt engineering}.  Prompt engineering is so fundamental that alongside its general ChatGPT documentation, OpenAI maintains documentation solely dedicated to prompt engineering\footnote{\href{https://platform.openai.com/docs/guides/prompt-engineering}{https://platform.openai.com/docs/guides/prompt-engineering}}.  Likewise, many courses are available to help people improve their prompt engineering skills\footnote{e.g. \href{https://www.coursera.org/learn/prompt-engineering}{Coursera Prompt Engineering for ChatGPT}, \href{https://www.udemy.com/course/prompt-engineering-for-ai}{Udemy prompt engineering course}, \href{https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/}{Deeplearning.ai course on prompt engineering for developers}. }.
 
 
 
@@ -145,9 +179,9 @@ Because data are central to the details of deploying AI, this section offers a c
 
 
 \subsection{Presidential Recordings}\label{section.data.prp}
-The Miller Center is unique in its collection of original and secondary information concerning audio recordings of U. S. presidents.  We have published these recordings, as well as archival finding aids describing them, on \url{millercenter.org}.  Additionally, scholars in the Presidential Recordings Project (PRP), continually create scholarly transcripts (in TEI XML format) of the tapes, which they publish in partnership with UVA Press.   The original recordings and finding aids are in the public domain.  Due to licensing restrictions, the PRP transcriptions of the tapes are copyright protected.   
+The Miller Center is unique in its collection of original and secondary information concerning audio recordings of U. S. presidents.  We have published these recordings, as well as archival finding aids describing them, on \href{https://millercenter.org}{millercenter.org}.  Additionally, scholars in the Presidential Recordings Project (PRP), continually create scholarly transcripts (in TEI XML format) of the tapes, which they publish in partnership with UVA Press.   The original recordings and finding aids are in the public domain.  Due to licensing restrictions, the PRP transcriptions of the tapes are copyright protected.   
 
-Table \ref{table.data.prp} outlines the size of the presidential recording data.  The table is based on the holdings in \href{millercenter.org}{mc.org}.  This is admittedly not the full slate of presidential recording data, but the number is close to the total available and gives an accurate sense of the corpus’ dimensions.  The ``Total Hours" column lists the total running time of all available recordings.  The ``Number of Recordings in mc.org” column shows the number of discrete conversations currently (as of this writing) housed on our website.  This figure is equal to or less than the full conversation count, since in the case of a few presidents, we do not yet have all conversations online.  
+Table \ref{table.data.prp} outlines the size of the presidential recording data.  The table is based on the holdings in \href{https://millercenter.org}{mc.org}.  This is admittedly not the full slate of presidential recording data, but the number is close to the total available and gives an accurate sense of the corpus’ dimensions.  The ``Total Hours" column lists the total running time of all available recordings.  The ``Number of Recordings in mc.org” column shows the number of discrete conversations currently (as of this writing) housed on our website.  This figure is equal to or less than the full conversation count, since in the case of a few presidents, we do not yet have all conversations online.  
 
 \begin{table}[htp]
 \caption{Miller Center Data Holdings: Presidential Recordings.}
@@ -218,7 +252,7 @@ We focus here on the subset of OHP data that has been published on the web becau
 \subsection{Miller Center Advancement and Communications Teams}\label{section.data.advancement}
 The Miller Center 's Advancement team maintains several databases to manage their contacts, track giving and fundraising, and to curate our various email lists.  However, these official fundraising databases are owned by University Advancement and are not directly available for use in any third-party AI applications.  In this section, then, we focus on the Advancement-related (and Communications-related) resources that the Miller Center retains direct control over.
 
-A joint effort by Advancement and Communications stores data about every public event that the Miller Center hosts.  In a variety of systems (\url{millercenter.org}, \href{eventbrite.com}{EventBrite}, and Marketing Cloud), these teams store, for each event:
+A joint effort by Advancement and Communications stores data about every public event that the Miller Center hosts.  In a variety of systems (\href{https://millercenter.org}{millercenter.org}, \href{eventbrite.com}{EventBrite}, and Marketing Cloud), these teams store, for each event:
 \begin{itemize}
 \item Metadata about the event (title, abstract, participants, location)
 \item Registrations
@@ -226,7 +260,7 @@ A joint effort by Advancement and Communications stores data about every public 
 \end{itemize}
 These data are highly structured--spreadsheet data containing each of these data types.  
 
-Another crucial source of Miller Center data is our flagship website, \url{millercenter.org} (mc.org).  We broke out portions of mc.org in previous sections (PRP and POHP).  But Table \ref{table.data.mcorg} re-lists these earlier numbers in order to give a full accounting of the website's holdings in one place.
+Another crucial source of Miller Center data is our flagship website, \href{https://millercenter.org}{millercenter.org} (mc.org).  We broke out portions of mc.org in previous sections (PRP and POHP).  But Table \ref{table.data.mcorg} re-lists these earlier numbers in order to give a full accounting of the website's holdings in one place.
 
 
 \begin{table}[htp]
@@ -268,7 +302,7 @@ Total						& 	41,152	\\
 
 
 \subsection{Miller Center Data in Amazon Web Services}\label{section.data.aws}
-Miller Center IT staff stores the lion’s share of our data in Amazon Web Services (AWS).  This catch-all descriptor actually contains three subcollections of data.  First, AWS contains the multimedia content that backs \url{millercenter.org}—items like POHP transcript and briefing book PDFs and PRP audio recordings.   Secondly, we use AWS to house backups of our raw video footage and assets (metadata, images, etc.) related to editing together the final versions of our public event videos.  Lastly, because we use AWS as a backbone of millercenter.org, there is a large body of transaction log data in AWS.  These logs capture how end users use our materials on millercenter.org.  For example, the logs can tell us which presidential speeches, PRP recordings, and POHP interviews are requested most often.
+Miller Center IT staff stores the lion’s share of our data in Amazon Web Services (AWS).  This catch-all descriptor actually contains three subcollections of data.  First, AWS contains the multimedia content that backs \href{https://millercenter.org}{millercenter.org}—items like POHP transcript and briefing book PDFs and PRP audio recordings.   Secondly, we use AWS to house backups of our raw video footage and assets (metadata, images, etc.) related to editing together the final versions of our public event videos.  Lastly, because we use AWS as a backbone of millercenter.org, there is a large body of transaction log data in AWS.  These logs capture how end users use our materials on millercenter.org.  For example, the logs can tell us which presidential speeches, PRP recordings, and POHP interviews are requested most often.
 
 Table \ref{table.data.aws} lists the main holdings in AWS.  
 
@@ -334,7 +368,7 @@ Total			&	1,471		&	1,403		&					&					&	58.5 MB	\\
 
 
 \subsection{Presidential Speeches}\label{section.data.speeches}
-The Miller Center maintains a corpus of impactful presidential speeches (\url{https://millercenter.org/the-presidency/presidential-speeches}).  This curated collection contains about 1050 speeches, with entries from all 45 U. S. presidents.  These speeches were enumerated as part of Table \ref{table.data.mcorg}, but we describe them in detail in this section due to their vital importance for AI work.  Each speech in the collection contains:
+The Miller Center maintains a corpus of impactful presidential speeches (\href{https://millercenter.org/the-presidency/presidential-speeches}{https://millercenter.org/the-presidency/presidential-speeches}).  This curated collection contains about 1050 speeches, with entries from all 45 U. S. presidents.  These speeches were enumerated as part of Table \ref{table.data.mcorg}, but we describe them in detail in this section due to their vital importance for AI work.  Each speech in the collection contains:
 \begin{itemize}
 \item The speech itself (i.e. a transcript)
 \item Metadata about the speech (President, date, title, location)
@@ -348,20 +382,22 @@ While this collection is small, it punches above its weigh because it is often r
 \item It allows researchers to download large volumes of our data without increasing the load on our website servers.
 \item It exposes our data to researchers in JSON format—a file encoding that is standard in the data science world and which saves consumers the need to remove formatting and encoding information.
 \end{enumerate}
-We unveiled \url{api.millercenter.org} in 2022 and since then it has become quite popular, with, on average, over 50 downloads per day of the speech collection.
+We unveiled \href{http://api.millercenter.org}{api.millercenter.org} in 2022 and since then it has become quite popular, with, on average, over 50 downloads per day of the speech collection.
 
 
 \subsection{Closing Thoughts on Miller Center Data}\label{section.data.closing}
-As we begin to consider AI modeling challenges and opportunities for the Miller Center, a high-level review of this section will be helpful.  Figure \ref{figure.data_venn} schematizes the various data sources that would be available if the Miller Center undertook a language modeling effort of its own.  The left portion of the figure shows six corpora that we described in this section.  The overlaps between the portions show real-world overlaps.  For instance, the PRP transcripts are in part included in the contents of mc.org.  Likewise with the Oral History transcripts--this content is duplicated on mc.org.  On the other hand, the OHP briefing books, while linked to from mc.org, are themselves completely separate from the website.
+Figure \ref{figure.data_venn} schematizes the various data sources that would be available if the Miller Center undertook a language modeling effort of its own.  The left portion of the figure shows six corpora that we described in this section.  The overlaps between the portions show real-world intersections.  For instance, the PRP transcripts are in part included in the contents of mc.org.  Likewise with the Oral History transcripts; transcript text appears as content on mc.org.  On the other hand, the OHP briefing books, while linked to from mc.org, are themselves completely separate from the website.
 
-Figure \ref{figure.data_venn} shows that we have approximately 43,000 ``pages" of Miller Center-specific text.  This is a large amount of text for tasks like model fine-tuning and evaluation.  It would also make an excellent RAG search index.  But for more ambitious modeling tasks we may need to flesh out our local holdings with additional data sources, since deep learning models do require such vast training corpora.  Luckily, the research community has made several large English language data sets available.  Three of these are shown in the right half of Figure \ref{figure.data_venn}.  The topmost block in that figure refers to the familiar English language \href{en.wikipedia.org}{wikipedia} database.  ``The Pile" refers to an 800-GB corpus that was used to train several LLMS such as LLama and Palm \cite{pile:2020}.  The C4 entry refers to the ``Colossal Clean Crawled Corpus" \cite{c4:2021}.  These resources have all been created, at least in part, in efforts to allow organizations like the Miller Center to supplement their local data holdings in order to build corpora of sufficient size to train LLMs.
+Figure \ref{figure.data_venn} shows that we have approximately 43,000 ``pages" of Miller Center-specific text\footnote{Some content type, such as PRP recording transcripts, may be longer than a single page per item.}.  This is a sufficient amount of text for tasks like model fine-tuning and evaluation.  It would also make an excellent RAG search index.  But for more ambitious modeling tasks we may need to flesh out our local holdings with additional data sources, since deep learning models require such vast training corpora.  Luckily, the research community has made several large English language data sets available.  Three of these are shown in the right half of Figure \ref{figure.data_venn}.  The topmost block in that figure refers to the familiar English language \href{en.wikipedia.org}{wikipedia} database.  ``The Pile" refers to an 800-GB corpus that was used to train several LLMS such as LLama (Facebook) and Palm (Google) \cite{pile:2020}.  The C4 entry refers to the ``Colossal Clean Crawled Corpus" \cite{c4:2021}, another open dataset intended for LLM training.  These resources have all been created, at least in part, in efforts to allow organizations like the Miller Center to supplement their local data holdings in order to build corpora of sufficient size to train LLMs.  
+
+When we discuss data requirements in the following sections, we will refer often to Figure \ref{figure.data_venn} as we imagine different model training and evaluation regimes.
 
 
 
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.5]{./figures/data_venn.png}
+\includegraphics[scale=0.7]{./figures/data_venn.png}
 \caption{Available Data Sources for Training Language Models. N.B. Items are not drawn to scale.}
 \label{figure.data_venn}
 \end{center}
@@ -371,27 +407,42 @@ Figure \ref{figure.data_venn} shows that we have approximately 43,000 ``pages" o
 \section{AI Initiatives Elsewhere on Grounds}\label{section.grounds}
 Because AI work tends to be resource-intensive, finding productive points of collaboration and cross-pollination is an important step as we endeavor to formulate our plans and ambitions in this space.  Not surprisingly, UVA has numerous AI initiatives in the works and in recent conclusion.  This section outlines the most relevant of these initiatives to this white paper, with the goal of identifying possible avenues for future collaboration and increasing our knowledge of expertise available on Grounds.
 
+Many units across grounds have begun AI initiatives.  For our purposes, four of these are the most relevant, due to their high impact and their proximity to the Miller Center, institutionally speaking:
+\begin{enumerate}
+\item The UVA Futures Initiative: a year-long project that will result in a strategic recommendation to Jim Ryan about AI and the future of universities.
+\item The Provost's Generative AI in Teaching and Learning Task Force: an in-depth study of how UVA should integrate AI into teaching.
+\item The Vice-Provost for Research's Task Force on AI in Research: a forthcoming survey of how AI is being used in research across grounds.
+\item Darden's Artificial Intelligence Initiative (DAII): a website and a roster of public events that crystalize how AI is impacting the business world and the research areas of Darden faculty. 
+\end{enumerate}
+
+\subsection{The University Futures Initiative}
 Currently, the most ambitious entity in the AI space at UVA is the Provost’s Futures Initiative.  The chief aim of the Futures Initiative is to develop a proposal for university leadership that will help UVA work proactively towards a future ushered in by disruptive technologies such as AI and large language models.  A core part of the Futures Initiative is the Futures Initiative Group, a body of internal and external UVA thought leaders that is tasked with strategic thinking about how the work of universities is likely to change in the near future.  
 
 During spring 2024 the aim of the Futures Initiative Group is to form a Future Initiatives Working Group (FIWG), consisting of thought leaders from across Grounds.  The membership of this group will be seeded by recommendations from deans and center directors, and the goal of the group is to pursue focused questions at a subcommittee level.  The formation of the FIWG is an opportunity for the Miller Center to join the larger discussion about AI by nominating personnel for a subcommittee.  This would have the twin benefits of positioning us at an important table and giving us a way to seek points of cross-Grounds collaboration in our AI work.
 
 A particularly exciting aspect of the Futures Initiative is its inherent interdisciplinarity and its intentional inclusion of partners from the liberal arts.  During an announcement about the Futures Initiative, Dean of the University’s College and Graduate School of Arts and Sciences, Christa Acampora said, “To understand, adapt, and solve these urgent problems, UVA will need to realize even greater interdisciplinarity across academic fields….The liberal arts and sciences are crucial for this project because—now more than ever—we need a more capacious understanding of what is human, more than human, and humane.”  Though AI is first and foremost a technical field, the generous funding of the Futures Initiative (\$1.5M from the Strategic Investment Fund, for the period 2024-2028) shows that at UVA there will be ample room for humanistic players such as the Miller Center to contribute to the discussion of how best to respond to the challenges posed by novel AI technologies.
 
-While the Futures Initiative project is an especially vital focus of AI work on Grounds, other work is also relevant to this white paper.  For instance, Darden and the Batten Institute have joined forces to form \href{https://www.darden.virginia.edu/intelligence}{UVA Darden’s Artificial Intelligence Initiative} (DAII).  Whereas the Futures Initiative Group is intentionally high-level, the DAII is more narrowly scoped, focusing on three main topics:
-\begin{itemize}
-\item AI and Marketing
-\item AI and the Future of Work
-\item AI and Economic Progress.
-\end{itemize}
-To foster critical thinking about these issues, the DAII aims to “[bring] together a diverse, multidisplinary group of leading scholars…to shape the discussion [on Grounds] about artificial intelligence and its related technologies, embracing a holistic perspective.”  Darden’s AI initiative maintains a program of public events related to these three topics, which will be important to stay abreast of for the Miller Center’s own strategic thinking.
 
-Some of the keenest questions about AI’s role at the university center on teaching and learning—how will AI technologies change the experience of students in the future?  In spring of 2023 the UVA Provost’s Office convened a \href{https://provost.virginia.edu/subsite/genai}{Generative AI in Teaching and Learning Task Force}.  The main outcome of this task force was writing a final report (available in the Related Reading appendix attached to this report) that considers how Generative AI will affect teaching and learning in three main ways:
+\subsection{Provost Task Forces on Artificial Intelligence}
+Some of the keenest questions about AI’s role at the university center on teaching and learning—how will AI change the experience of students and instructors?  In spring of 2023 the UVA Provost’s Office convened a \href{https://provost.virginia.edu/subsite/genai}{Generative AI in Teaching and Learning Task Force}.  The main outcome of this task force was writing a final report (available in the Related Reading appendix attached to this report) that considers how Generative AI will affect teaching and learning in three main ways:
 \begin{enumerate}
 \item What students learn,
 \item How students learn, and
 \item How learning is assessed.
 \end{enumerate}
 The outcome of the Generative AI in Teaching and Learning Task Force is twofold.  First, the task force created a \href{https://provost.virginia.edu/subsite/genai/faqs}{web-based tool} intended to help instructors and students to answer practical questions about appropriate uses of AI in UVA classroom settings.  Second, the task force released a \href{https://provost.virginia.edu/subsite/genai/task-force-report}{final report}, outlining its process and findings.  Characterizing fall 2023 as an inflection point, the task force encourages UVA not to “waste a good crisis,” urging faculty to engage in structured thinking about their own plans and University leadership to supply “significant…administrative support” for the UVA community’s efforts to integrate AI into teaching and learning.
+
+With the teaching and learning task force completed, the Vice Provost for Research recently convened a new task force to examine how AI is affecting research efforts across grounds.  This initiative is in its early stages.  But a major item on the task force's agenda is completing a survey of AI-enabled research projects at UVA.  Recently, Raf Alvarado--a member of the AI Research Task Force--interviewed Marc Selverstone and Miles Efron as part of this survey.  He was enthusiastic about the projects we described, and he plans to feature the Miller Center's work in the final report of the task force.  Alvarado also described several funding opportunities, which we return to in Section \ref{section.grounds.funding}
+
+\subsection{The Darden Artificial Intelligence Initiative}
+While the Futures Initiative project is an especially vital focus of AI work on Grounds, other work is also relevant to this white paper.  For instance, Darden and the Batten Institute have joined forces to form \href{https://www.darden.virginia.edu/intelligence}{UVA Darden’s Artificial Intelligence Initiative} (DAII).  Whereas the Futures Initiative Group is intentionally high-level, the DAII is more narrowly scoped, focusing on three main topics:
+\begin{itemize}
+\item AI and Marketing
+\item AI and the Future of Work
+\item AI and Economic Progress.
+\end{itemize}
+To foster critical thinking about these issues, the DAII aims to “[bring] together a diverse, multidisciplinary group of leading scholars…to shape the discussion [on Grounds] about artificial intelligence and its related technologies, embracing a holistic perspective.”  Darden’s AI initiative maintains a program of public events related to these three topics, which will be important to stay abreast of for the Miller Center’s own strategic thinking.
+
 
 Together, these three initiatives (the Futures Initiative, the Darden AI Initiative, and the Generative AI in Teaching and Learning Task Force) show three important facts about the state of play with respect to AI on Grounds in early 2024:
 \begin{enumerate}
@@ -401,57 +452,100 @@ Together, these three initiatives (the Futures Initiative, the Darden AI Initiat
 \end{enumerate}
 
 
+\subsection{Resource Availability and the Funding Landscape for AI Work, On- and Off-Grounds}\label{section.grounds.funding}
+During our interview with Raf Alvarado for the VPR's AI Research Task Force, we learned that at this time funding for AI research on Grounds in fairly unstructured but nevertheless available.  The main source of support available for research into AI applications is \href{https://www.rc.virginia.edu}{UVA Research Computing} (URC).  URC offers compute, data storage, and training resources to the UVA community, including special support for AI in the form of GPU access (i.e. the hardware used for AI model training), parallel implementations of the major AI software libraries (e.g. Keras/TensorFlow/PyTorch), and tera-scale data storage.  These resources are available on a pay-as-you-go model.  Raf Alvarado suggested that in the future, UVA will likely offer financial support to help units pay for these services, but at the time, no formal AI support source is broadly available.
+
+It is also important to keep in mind that the URC computing infrastructure is, as its name implies, available only for research purposes.  For any production systems, the Miller Center would need to find other infrastructure.  However, AI computing resources are increasingly easy to marshal.  The Miller Center has already moved almost all of its IT portfolio to the AWS cloud, and Amazon provides ready access to all of the storage and compute resources that we would need for any AI project.  For specialized services, the major AI platforms are all available via public APIs, which would allow the Miller Center to call, say, GPT-4 models, or the OpenAI embeddings interface from our own code.  Architecting our AI software systems will be a crucial task as we roll out intelligent systems.  But given the increasing industry conformance with best practices in terms of API exposure, access to models and software are unlikely to pose a significant problem.
+
+To fund our use of these infrastructure elements, a number of new funding opportunities may be of interest.  
+
+Tthe National Science Foundation is currently starting \ref{https://nairrpilot.org}{the National AI Research Resource Pilot} (NAIRR),  a project aimed at supporting AI research by providing industry-scale computing infrastructure.  NAIRR's first round of funding--an open call for requests for GPU access--is currently open, with a request deadline of March 1, 2024.  If this date is too early for the Miller Center to submit a request, NSF has indicated that future, possibly more broadly scoped rounds will come online in the future.  In addition to grants for GPU access, NAIRR offers \href{https://nairrpilot.org/pilot-resources}{a web-based repository of AI resources} like pre-trained models, corpora, and software.  
+
+A second possible source of support is \href{https://www.neh.gov/AI}{the National Endowment for the Humanities' Perspectives on AI}, a research initiative that NEH launched in 2023. The Humanities' Perspectives on AI initiative currently has five lines of funding, each with its own focus and target audience.  
+
+The infrastructure and support options available for any Miller Center AI initiatives is certainly broader than what we can outline in this white paper.  However, as this brief section shows, at both local and national levels, there is increasing interest in funding humanistic applications of AI.  Between the Miller Center's current base of support, funding and technology programs on grounds, and commercial and government resources, the resources available to the Miller Center are deep.
+ 
+
 
 \section{Possible Applications of AI Technology to Advance the Miller Center's Mission}\label{section.applications}
 This section outlines several projects that the Miller Center could undertake to increase its impact and pursue its mission by applying AI technologies.  These proposals are arranged in increasing order of ambition and reach, with the hope that Leadership can get a sense of how we might use AI with different levels of financial and institutional commitment.  
 
+\subsection{A Note on the Cost of AI Project Suggestions}\label{section.applications.cost}
+The projects we outline in this section would incur several different types of cost.  Some of the computation would take place on servers in the Miller Center's private AWS cloud.  However, the bulk of the proposed work would take the form of calls to public API's (e.g. from OpenAI, AWS, Google).  API costs come in two varieties:
+\begin{enumerate}
+\item One-time upfront costs for model training
+\item Ongoing cost for workload requests.
+\end{enumerate}
+At this time, AI companies charge for API usage on a per-token basis.  The is, the more word tokens we ask the model to read or create, the higher our cost.  These costs vary from service to service.  But to give a sense of their magnitude we offer these data points:
+\begin{itemize}
+\item To fine-tune GPT-4 for OHP interview summarization would cost approximately \$30 as of this writing.
+\item To use OpenAI's Whisper audio model to transcribe the full corpus of PRP recordings would cost about \$1,750.
+\end{itemize}
+The actual cost of training models may end up somewhat different from these numbers, but they give a good indication of the order of cost magnitude the Miller Center would face to train AI models.
+
+The ongoing deployment and hosting costs are harder to predict, partly because we do not yet know the details of what we would deploy, and partly because we do not know the amount of traffic we would have to support.  It would, for instance, cost much more to serve a Miller Center LLM for the general public than for local scholars only.  
+
+Another ongoing expense would be the cost of housing any locally-served models.  It may be the case that public APIs give enough flexibility that we would never need to train and send traffic to a locally owned model.  However, depending on what our precise needs end up being, we may be better served by  training a model from scratch or fine tuning a model that we own and maintain\footnote{The decision to host our own model instead of using an API-based model in the cloud will hinge on the exact nature of the system and training we need to implement.  Using a cloud-based model is likely to be easier in general.  But in certain cases, public training APIs do not support local needs, or they can end up being more expensive than serving a local model.}.  A common industry rule of thumb is that if our traffic generates more than about 1,000 model invocations per day, hosting our model becomes cost effective \cite{vivek:2023, javaness:2023}.  With traffic below about 1,000 calls per day, relying on public APIs is usually cheaper.  
+
+In general, the cost of providing access to LLMs is an ongoing proposition.  This expense scales linearly with the amount of traffic the models respond to (both input and output)
+
 \subsection{Low-Hanging Fruit: Simple Options with High Impact}\label{section.applications.easy}
 
-\subsubsection{Expanding our Data Portal, data.millercenter.org}\label{section.applications.easy.data-portal}
-Currently the data portal serves the text and simple metadata associated with the 1050 speeches in the millercenter.org presidential speech collection.   There are two ways we might expand our data offerings.  
 
-First, we can expand the types of data we serve.  In addition to the presidential speeches, it would be a simple matter to make available the POHP transcripts that we already host on \url{millercenter.org}.  Likewise, for each of the “scrollers” that we host on the Listening to the Presidency website section, we could add the associated transcript to the data portal.  
+\subsubsection{Informally Integrating AI Tools into Miller Center Work}\label{section.application.easy.daily-work} 
+A key aspect of modern AI tools is their broad application.  Knowing when and how to use AI, and being able to wield AI tools creatively are key skills for in modern office work.  To help the Miller Center (ideally scholars and staff) capitalize on the current state of the art, a few simple actions could go a long way.
 
-Second, we could add richer metadata and functionality to the data portal’s underlying REST API.  For example, an important step in most AI work with natural language text is deriving so-called “text embeddings.”  Text embeddings are themselves an AI product.  They represent natural language text in numerical form, such that the text’s underlying semantics become computationally tractable.  Almost all modern AI work involves transforming input text into embeddings as an initial step.  We could increase the utility of \url{data.millercenter.org} by pre-computing text embeddings for all exposed text and then making those embeddings available to clients.  This would greatly enhance the value of our service to downstream researchers.
+First, it could be advantageous to schedule a periodic brown bag or informal tutorial on creative applications of AI.  We could draw on local talent, and optionally invite external guests to participate in such a forum.  One goal might be for a designated staff member (e.g. Miles Efron) to handle at least the first installments of such a brown bag series, with the goal of providing instruction in using these tools for the kinds of tasks that come up often at the Miller Center.  
+ Initial topics could include prompt engineering best practices, using ChatGPT to analyze spreadsheet data, and a comparison of AI tools such as ChatGPT, Bard and Anthropic's Claude.  After time, once it has momentum, the series could be opened to guest speakers who could present on their own experiences using AI in their work.
 
-
-\subsubsection{AI-Informed Advertising and Marketing}\label{section.applications.easy.marketing}
-The Miller Center currently uses an array of technologies to meet its digital marketing needs.  Among other tools, we rely on:
-\begin{itemize}
-\item Google Analytics: A tool that helps us learn which parts of our websites are most impactful and what kinds of sign design decisions lead our visitors to be most satisfied with our materials.
-\item Google Ads: The platform managed by Google that allows us to purchase advertisements to help draw visitors to register for our events and visit our web properties.
-\item Social Media, e.g. Instagram and YouTube: Platforms that let us share content (e.g. video, images, website extracts) widely.
-\item MarketingCloud: The Salesforce tool that we use to manage our bulk email correspondence.  We use this to promote events and to aid in development.
-\end{itemize}
-Each of these tools have, in the last year, received updates that allow them to make use of advances in AI and data science.  In many cases (e.g. Google Analytics and Google Ads), these advances span multiple tools, allowing us, for instance to use our Google Analytics data to improve the targeting of our ads.  
-Our initial experience with these tools have been positive.  Our Google Ad buys have helped us assure large audiences for Miller Center events.  And our recent forays into social media have increased our reach on these platforms tremendously.  It seems plausible, then, that after last year’s roll-outs of novel, AI-based features, that Miller Center staff could extract new value from these tools.
-As an example, to date we have used Google Ads mainly to promote event registration.  This has served us well, and should definitely continue.  However, recent results from marketing literature suggest that an especially effective way to use Google Ads is by maintaining a constant, small-scale ad campaign aimed only at brand awareness.  We might, for instance, maintain a modest campaign that targets people who are likely to enjoy Miller Center web content but who have not yet visited our site.  These kinds of campaigns tend to be very inexpensive and highly effective—drawing new audiences to websites.  While this strategy has a long history of success in the online marketing world, Google has rolled out new tools that use AI to analyze our website content and Google Analytics data to improve its decisions of whom to show our ads to.   A modest outlay (on the order of \$20/month) would give us a good sense of whether a brand-awareness campaign is a good fit for our needs, and whether the new tooling in the Google Ads platform marks a real improvement for us.
-The idea of small brand-awareness ad buy is merely one among many opportunities in this space.  It would allow us to explore this area cheaply and with little commitment.  On the other hand, we could also surely imagine more ambitious marketing-related experiments if the appetite to do so is there.
-
-
-\subsubsection{Informally Integrating AI Tools into Miller Center Work}\label{section.application.easy.daily-work}
-One key aspect of modern AI tools is their broad application.  Knowing when and how to use these tools, and being able to wield them creatively are key skills for people interested in using resources like ChatGPT, Bard, or Dall-E.  To help the Miller Center (ideally scholars and staff) capitalize on the current state of the art, a few simple actions could go a long way.
-
-First, it could be advantageous to schedule a periodic brown bag or informal tutorial on creative applications of AI We could draw on local talent, and optionally invite external guests to participate in such a forum.  One goal might be for a designated staff member (e.g. Miles Efron) to handle at least the first installments of such a brown bag series, with the goal of providing instruction in using these tools for the kinds of tasks that come up often at the Miller Center.  After time, once it has momentum, the series could be opened to guest speakers who could present on their own experiences using AI in their work.
-
-Concomitant with a live instructional series, we could make a live document about AI technologies available to Miller Center staff.  The document could contain, among other things:
+Concomitant with a live instructional series, we could make a living document about AI technologies available to Miller Center staff.  The document could contain, among other things:
 \begin{itemize}
 \item Reviews of online courses on AI Currently, UVA makes numerous trainings available to staff, and highlighting the best of these might be useful.
-\item Especially lucid or exciting reports on AI use in the workplace.
+\item Reports on successful use of AI in the workplace.
 \item A listing of tools available to Miller Center staff and descriptions of their applications to our work.
+\item Guidelines for effective prompt engineering.
 \end{itemize}
-Another, related option for integrating AI into Miller Center work would be to give interested staff access to the OpenAI paid platform, ChatGPT Plus.  ChatGPT Plus is the \$20/month subscription version of OpenAI’s otherwise free ChatGPT service.  For the Miller Center’s purposes, the paid version of the system is attractive mainly due to its “Data Analyst” offering.  OpenAI Data Analyst is a service that allows users to upload files such as Excel spreadsheets and then to engage with ChatGPT to analyze the uploaded material, as in Figure \ref{figure.chatgpt}.
+The goal of this document would be to help Miller Center staff integrate AI into their daily workflow by highlighting tasks and settings where AI can offer real benefits for completing daily tasks.
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics{./figures/chatgpt.png}
-\caption{Sample Interaction with ChatGPT.}
-\label{figure.chatgpt}
-\end{center}
-\end{figure}
+
+
+
+
+
+
+\subsubsection{Expanding our Data Portal, data.millercenter.org}\label{section.applications.easy.data-portal}
+Miller Center staff rolled out a data portal, \href{https://data.millercenter.org}{data.millercenter.org}, and its API backend \href{https://api.millercenter.org}{api.millercenter.org}, in 2022\footnote{For clarification \href{https://data.millercenter.org}{data.millercenter.org} is a human-readable website that explains our data offerings and contains documentation for our data API.  On the other hand, \ \href{https://api.millercenter.org}{api.millercenter.org} is the endpoint of our data API.  It has no human-readable content and is only intended for interaction with AI software using the REST protocol.}.  The goal of these services is to allow researchers to download Miller Center content in research-friendly formats without overloading our production web servers.  Since unveiling these services, we have seen consistent interest in them, with about 50 data downloads per day.  Currently, the data portal only serves the text and  metadata associated with the 1,050 speeches in the millercenter.org presidential speech collection.   A logical and easy improvement we could make would be to flesh out our data offerings, increasing the types of data we serve and the functionality of our data API.  These changes would help increase the Miller Center's profile in the data and natural language processing (NLP communities.
+
+To increase the value of our data API, there are two ways we might expand our data offerings.  
+
+First, we can add additional types of data to our API.  In addition to the presidential speeches, it would be a simple matter to make available the POHP transcripts that we already host on  \href{https://millercenter.org}{millercenter.org}, assuming copyright issues would permit it.  Likewise, for each of the “scrollers” that we host on the Listening to the Presidency website section, we could add the associated transcript to the data portal.   Again, copyright issues would dictate the ultimate decision to include or exclude transcripts. 
+
+Second, we could add richer metadata and functionality to the data portal’s underlying REST API.  For example, an important step in most AI work with natural language text is deriving so-called “text embeddings.”  Text embeddings are themselves an AI product.  They represent natural language text in numerical form, such that the text’s underlying semantics become computationally tractable.  The first step of almost all modern AI work involves transforming input text into embeddings.  We could increase the utility of  \href{https://datamillercenter.org}{data.millercenter.org} by pre-computing text embeddings for all exposed text and then making those embeddings available to clients.  This would greatly enhance the value of our service to downstream researchers.  
+
+The aim of improving our data service would be, in part, to strengthen public perceptions of the Miller Center as a force in the NLP and data community.  As part of this effort, we might announce API improvements on standard NLP and AI lists.  For researchers and students (our data is often used for AI course projects) \href{https://data.millercenter.org}{data.millercenter.org} is a useful tool.  Investing in increasing its functionality, offerings, and visibility could be a boon to the Miller Center's reputation in the data and AI communities.
+
+
+
+\subsubsection{Improving the \href{https://millercenter.org}{mc.org} Site Search Engine}\label{section.applications.easy.sitesearch}
+In 2023 the Miller Center Web team overhauled the search engine that supports our flagship website, \href{https://millercenter.org}{mc.org}.  Search plays an invaluable part of users' experience with our website--visitors used our search engine almost 200,000 times in 2023, and since unveiling our search improvements, search volume has doubled.  Given the core role our search engine plays in users' interaction with mc.org, it would be advantageous to use AI to improve our search engine.
+
+Due to technical limitations, there are currently two major gaps in our site search engine's index:
+\begin{enumerate}
+\item Presidential recordings.  People can search our corpus of recordings by metadata (title, speaker name, date), but not the content of each recording.  
+\item Public events.  As with the recordings, people can find information about events based on metadata, but not based on the spoken contents of each public event.
+\end{enumerate}
+AI presents a clear path to filling these gaps.  To improve our site search engine, we could add invisible text fields to our web content.  The new content would be obtained via AI.  It would never be displayed to humans.  But we could use it to index the pages, allowing users to search the recordings and events by content.
+
+In terms of the presidential recordings, current-generation audio-to-text models are sufficiently accurate to transcribe the recordings \emph{for search purposes}.  That is, we would only use these transcriptions to support search, not as a visible field when displaying content on mc.org.  It may be the case that the noisiest of the recordings would remain un-transcribable by AI.  However, measuring the ``noisiness" of these recordings is an  task that we could automate.  Based on experimentation, we could easily derive a threshold of clarity, only using AI to transcribe those recordings whose audio quality exceeds a certain value.
+
+For the public events, no additional processing is needed.  Since we host videos of our events on YouTube, Google creates transcripts of our events automatically.  To add these transcriptions to our search engine, all we need to do is to download them and attach each transcript to its corresponding event on the site.  
+
+The main work of this modest project would be $A$) assessing how to handle the problem of noisy recordings and then $B$) making the needed changes to the website.  The work of attaching the transcripts to their pages on mc.org would be a fairly simple programming task.  Finally, we would need to build some user interface changes into the site search engine to allow users to include or exclude the AI-generated full-text search.  However, none of these tasks is difficult.
+
+In terms of cost, the main cost would come from obtaining the AI-generated recording transcripts.  However, even this is a modest outlay.  If we transcribed every minute of audio shown in Table \ref{table.data.prp} using OpenAI's \href{https://openai.com/research/whisper}{Whisper} audio-to-text AI, the cost would be about \$1,725.  If we limited transcription to relatively ``clean" recordings, this cost would go down.
 
 \subsubsection{A Public Service: Hosting an Open Database of Presidential Deepfakes}\label{section.applications.easy.deepfakes}
-An increasingly keen problem of public interest is the dissemination of so-called deepfakes—images, audio recordings or videos that purport to be authentic but are in fact fraudulent, usually created by AI tools.  Figure 4 shows (normalized) worldwide web search volume for the term deepfakes, according to Google Trends.  The figure shows that public interest, at least insofar as interest correlates with search volume, in deepfakes has risen steadily since 2018.  To help assess the (un-normalized) scale of Figure 4, we consulted Google Ads, which reports a raw search volume for deepfakes at approximately 1M searches in January 2024. From these data, Google Trends and Google Ads, it is clear that the public interest in deepfakes is high and rising steadily.
+An increasingly keen problem of public interest is the dissemination of so-called deepfakes—images, audio recordings or videos that purport to be authentic but are in fact fraudulent, usually created by AI tools.  Figure \ref{figure.deepfakes} shows (normalized\footnote{The normalization here is a percentage.  In Figure \ref{figure.deepfakes}, the search volume was was about \%20 percent of its maximum in 2019 and  \%100 of its maximum in 2024.}) global web search volume for the term \emph{deepfakes}, according to Google Trends.  For reference, according to Google Ads, the current search volume for \emph{deepfakes} is approximate 1M searches per month. The figure shows that public interest in deepfakes rose steadily, from about 250,000/month in 2018 to 1M/month in 2024.  
 
 
 \begin{figure}[htbp]
@@ -469,20 +563,162 @@ The political arena is especially vulnerable to influence by bad actors using de
 \end{enumerate}
 As deepfakes become easier to create and harder to detect, the risks they pose to political discourse will grow more and more worrisome.  Recently, the online magazine UVA today highlighted several scholars on Grounds (from the Center for Politics and the Law School) who are concerned about exactly this intersection \cite{mckenzie:2023}.
 
-An impactful project in this space would be an online database of political deepfakes, a resource for the public to consult when they find online content of dubious authenticity.  The database could operate similarly to the urban legend debunking resource snopes.com, a website associated with the database could accept reports of deepfakes which an editor would then verify and add to the corpus (given appropriate evidence of fraudulence).  The goal would be to provide information about known deepfakes so that stakeholders such as journalists, scholars and informed citizens could find context about the provenance of online fakes.
+An impactful project in this space would be an online database of political deepfakes, a resource for the public to consult when they find online content of dubious authenticity.  The database could operate similarly to the urban legend debunking resource \href{https://snopes.com}{snopes.com}.  A website associated with the database could accept reports of deepfakes which an editor would then verify and add to the corpus (given appropriate evidence of fraudulence).  The goal would be to provide information about known deepfakes so that stakeholders such as journalists, scholars and informed citizens could find context about the provenance of online fakes.
 
-Hosting such a web-based resource would entail modest technical effort, since it would not require special software and only staffing by easily trainable, possibly student editors.  There are tools online to help editors of the site in their research about putative deepfakes, but the site itself would mainly require human effort to run.  At the time of this writing, there appears to be no resource of this kind online, which provides an opening for the Miller Center to offer a novel service with high public visibility and impact.  Of course, this resource would also stand to become controversial, and it may be outside of the Miller Center’s purview.  However, building and maintaining a public facing deepfake database could be a valuable addition to the Miller Center’s online portfolio. 
+Hosting such a web-based resource would entail modest technical effort, since it would not require special software or hardware.  Maintaining a deepfake database would mainly require staffing by easily trainable, possibly student editors.  At the time of this writing, there appears to be no resource of this kind online, which provides an opening for the Miller Center to offer a novel service with high public visibility and impact.  Building and maintaining a public-facing deepfake database could be a valuable addition to the Miller Center’s online portfolio, burnishing its credentials as an organization that engages with the intersection of AI and politics.
 
 
 \subsection{Ambitious, Moonshot-Type Applications}\label{section.applications.hard}
 While our previous section offered simple, practical ways to leverage AI technologies at the Miller Center, in this section, we offer more ambitious recommendations.  AI offers truly transformative opportunities for modern knowledge work; how could the Miller Center marshal AI’s boldest promises to revolutionize its work and qualitatively extend its impact?  This section recommends three approaches.
 
-\subsubsection{Presidential Studies: Data Visualization of Presidential Second Terms}\label{section.applications.hard.dataviz}
-After the 2016 presidential election, the Miller Center undertook an ambitious research project to study the dynamics of presidents’ first years in office—the \href{firstyear2017.org}{FirstYear project}.  FirstYear included an analysis of which observable variables most strongly shape a president’s first year in office.  Due to FirstYear’s success, a follow-up project seems warranted.  Given our current national landscape, a natural successor to FirstYear would be a project that studies presidential second terms in office.  AI and data science tools would be a natural fit as a part of such a project.  
 
-In the FirstYear project, scholars assessed the impact on presidential success of variables such as the composition of congress at election time, the size of the incoming president’s margin of victory, and the presence or absence of crises on the national stage.  During their FirstYear research, Miller Center scholars assessed how and to what extent these variables drove other, dependent variables such as passed legislation and midterm election results.  In a “Second Term” follow-on project, the Miller Center could repeat this style of analysis.  However, given the computational tools currently at our disposal, the nature of this analysis and its eventual output might differ from our first pass at the problem.
+\subsection{A Miller Center Language Model}\label{section.applications.hard.mcllm}
+During discussions about future AI initiatives at the Miller Center, several scholars have imagined the value of a native Miller Center large language model.  The aim of a Miller Center LLM would be to support a wide-ranging, interactive queries into presidential history and politics, drawing on the Miller Center's unique data to formulate answers.
 
-A natural role of DSAI technologies in support of such a project would be to build and publish accompanying data dashboards.  The original FirstYear project included numerous graphs, and a follow-on study might benefit from a data dashboard that helps readers make sense of the data that informs that written scholarly result of the work.   From a practical standpoint, this would take the form of an online resource such as the census visualization referred to earlier.  In general, using a modern visualization tool like Tableau for a Second Term project might expand the range of arguments and insights that emerge from the input data.
+At least three concrete use cases for a Miller Center LLM arose during preparation of this white paper:
+\begin{itemize}
+\item Miller Center CEO Bill Antholis imagined a system where users could ask to see all conversations where presidents discuss U.S.-China relations. 
+\item Miller Center scholar Guian McKee discussed the research value of a system that could identify all moments in PRP recordings where presidents or their staff spoke in ways that violate the public trust.  
+\item Miller Center scholar Barbara Perry suggested that an AI-based system could help researchers conduct a follow-up to the \href{firstyear2017.org}{FirstYear project}, focusing on presidential second terms.
+\end{itemize}
+Each of these cases speaks to the same underlying challenge: for researchers and other Miller Center audiences, there is a tremendous opportunity in finding a way to bring novel context, novel perspectives on the entirety of the Miller Center's data universe.  Building a system that would allow its users to interact with Miller Center data semantically--seeking themes and trends, not simply keywords and tags--is arguably \emph{the} breakthrough that AI affords us.
+
+To an end user, such a system might look like a ChatGPT-style conversational agent.  The goal would be to allow the user to enter an initial query and then re-query the model based on the first results.  Through an iterative process, users should be able to retrieve data, request  summaries of the retrieved data, and add follow-on queries based on these summaries.  Each of the use-cases listed above is similar insofar as the questions seek a retrieved data set that is in some sense finite, but whose edges are not clear cut (not all discussions of U.S.-China relations, breeched public trust, or presidential second terms are clearly labeled as such).  This semantic similarity and the interest in iterative, incremental querying that would distinguish a Miller Center LLM from a more familiar search application.
+
+There are numerous architectures developers could plausibly use to build this ``Miller Center LLM."  A full reckoning of this decision is outside our current scope.  But for the remainder of this section, we offer initial thoughts into this project's design decisions.  Our goal here is not to finalize the system, but to help readers understand what decisions would need to be made, and what resources marshaled, to bring this to completion.
+
+In light of our discussion of the Miller Center's data holdings in Section \ref{section.data}, there are three main architectures a system like this could rely on.
+
+A first approach would be to build, from scratch, a true Miller Center LLM.  Doing this would necessitate using all of the data sources (internal and external) shown in Figure \ref{figure.data_venn}.  In order to give our model enough training data, we would need to supplement our data crown jewels with external sources such as Wikipedia, the ``pile" and the C4 corpus.  This would be a hefty engineering task.  It would require us to find adequate storage and GPU/compute resources.  However, this is a plausible path forward.
+
+A more modest approach would be to use our internal data sources (i.e. the left half of Figure \ref{figure.data_venn}) to fine-tune an existing foundation LLM.  This approach would have several advantages over a from-scratch LLM.  For instance, it would require much lighter resource allocation, both in storage and compute.  Secondly, it would free development from the emphatically non-trivial data cleaning and data selection work that training a full LLM would necessarily require.  However, fine tuning is most successful when we want the resulting model to perform well on single, well-defined type of task.  In this case, initial discussions sound like retaining flexibility in our final model is important, a consideration that may argue against the fine tuning approach.
+
+Perhaps the clearest path  to developing a system like this is not to train a new LLM at all, but rather to create a retrieval-augmented generation (RAG) system.  As we discussed in Section \ref{section.vocab.rag}, RAG systems combine a search engine and an LLM to create a conversational system that ``knows" information stored in text documents.  The advantage of RAG for a problem like this one is that it will allow us to capitalize most directly on our data.  With a purely LLM-driven system, the knowledge in our data would only be retrievable indirectly, insofar as it ends up encoded in the model's parameters.  In a RAG system, however, the model would essentially act as a broker, finding passages from our documents that using a general-purpose LLM to contextualize what the passages say.
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.7]{./figures/mc_llm.png}
+\caption{Architecture of a Miller Center LLM/RAG Question Answering System.}
+\label{figure.mcllm}
+\end{center}
+\end{figure}
+
+Figure \ref{figure.mcllm} sketches a likely architecture for a Miller Center LLM/RAG system.  Information would enter the system via this pipeline:
+\begin{enumerate}
+\item Our documents--recordings, interviews, public event transcripts, and mc.org content--would be translated in ``text embeddings" by a service such as OpenAI's.  These text embeddings translate each document (or sub-document chunk) into a representation amenable to use by LLMs.
+\item A vector database stores the embeddings.  This database is essentially the index of our RAG system.  Pinecone is a cloud-based vector database provider that would be a likely candidate for this task.
+\item Miller Center staff would develop software using the OpenAI ChatGPT and LangChain API's.  This software handles incoming user queries, searches over the vector database, and finally, translation of retrieved documents into conversational English.
+\end{enumerate}
+Users could interact with the system via a new portal on mc.org, or on a newly created website; the point is that a familiar web interface would host the service.  Incoming queries would interact with the OpenAI/LangChain code (hosted in AWS, probably), and the final results and interaction would be handled by the web interface.
+
+This sketch is a fully plausible way to build a system that could support broad queries against Miller Center information.  Given the novelty and ambitiousness of this task, however, it would be important to consider in-depth planning and research before settling on a final system architecture.  
+
+An important design question related to a Miller Center ``LLM" is who the supported audience will be.  If the tool will be limited to use by Miller Center scholars, we could deploy it with fairly modest costs.  The services shown in Figure \ref{figure.mcllm} all charge based on usage volume.  A system along the lines of Figure \ref{figure.mcllm} could be created with minimal upfront costs (on the order of \$1,000-\$5,000, though further research is needed to derive a concrete estimate).  Serving this application for internal use only would require very low costs after the initial outlay.  However, if our intention is to serve this model to the full mc.org audience, costs will rise substantially.   
+
+
+\subsubsection{A Digital Forensics Kit to Support Presidential Recordings Scholarship}\label{section.applications.hard.prp}
+Current-generation audio-to-text AI is sufficiently powerful to handle tasks like transcribing Miller Center public events and extracting text from PRP recordings to support search engine indexing.  But even modern AI has important limitations when it comes to the research problems faced by PRP scholars.  First, current models cannot identify who is speaking during an audio recording.  Secondly, audio-to-text technology cannot accurately transcribe passages where aging media or recording artifacts render the audio itself noisy.   Because of these limitations, AI applications for PRP will have to look beyond off-the-shelf offerings.  
+
+
+Instead of using AI to replace the transcriptive work of scholars, a more feasible approach is to use AI to give scholars new tools that might help them work more efficiently or effectively.  In this section we propose two innovations that PRP scholars could use to arrive at forensic insights into the contents audio recordings.
+
+To help scholars identify speakers, a plausible path forward is to fine tune an audio classification model.  Models of this kind take an audio clip as input and return text as their output.  In this case we could begin with a foundation model trained to understand recordings of English language conversations.  To align this model with PRP needs, we would fine tune it by presenting it with a training collection of labeled audio clips as in Figure \ref{figure.prpspeakers}.  The left portion of Figure \ref{figure.prpspeakers} schematizes the training corpus.  This would consist of \{\emph{audio clip, speaker name}\} pairs.  This training data would allow the model to learn what JFK's voice (or LBJ's voice, or J. Edgar Hoover's voice) sounds like,.  To use the fine-tuned model, PRP scholars would indicate that they would like an assessment of who is speaking at a particular time code in a particular audio file.  The model would return a ranked list of possible speakers for the clip in question, along with the probability that each speaker is the correct label.  
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=1.0]{./figures/prp_speakers.png}
+\caption{Training and Query Regime for a Speaker Identification Tool.}
+\label{figure.prpspeakers}
+\end{center}
+\end{figure}
+
+A similar tool could help PRP scholars with another common hurdle in their work, transcribing passages that are inaudible.  The original White House recordings are often noisy, and in many cases it is difficult  to make out how a conversation goes.  To help scholars fill in these blanks, a combination of LLMs and audio models could be brought to bear.  The idea is that scholars would present to a model the parts of the conversation they \emph{do} know, and an indication of the part they cannot make out.  Based on the given context, the model would return a ranked list of probable transcriptions for the inaudible portion.  For instance, if scholars had transcribed a sentence as \emph{Apparently some \{unclear\} in Justice is lobbying with the Post}, an LLM could induce a probability distribution over all words $X$ in the English language $P(X | $ Apparently some \{unclear\}, \{unclear\} in justice is lobbying with the post $)$.
+
+The training data for both of these tasks is readily available.  For the speaker identification task, training data could come from two sources:
+\begin{itemize}
+\item PRP maintains a voice ID bank, a database of sound files, each of which is labeled with the name of the person who is heard speaking in the audio.
+\item ``scroller" presentations on mc.org: each of these multimedia documents contains an audio file and time-coded lists of who is speaking at each moment of the audio.
+\end{itemize}
+Together these two data sources could train a model to make a judgment of who is speaking in a new, un-labeled recording.
+
+For a system that suggests transcriptions of noisy audio passages, an off-the-shelf foundation LLM might suffice.  A fine-tuned model might improve over the foundation model.  But the core point in this case is that this task--filling in gaps in English language text--is precisely how LLMs operate.  An LLM is trained by showing it terabytes of text.  At each step in the training process, random words in the training text are ``masked" (hidden).  The model is trained by teaching it to guess correctly which words should go into those masked slots.  This is precisely the task we would ask the model to do in the PRP case, though here the gaps may contain longer passages than a single word.  Nevertheless, the setup is identical.
+
+It is important to stress that these two applications for PRP would constitute novel research in their own right.  It seems plausible and likely that these systems could be trained to deliver predictions that would give PRP scholars a useful new perspective on their work.  However, to bring these models up to a useful level of accuracy will require non-trivial scientific (not just engineering) thinking.  This would be an exciting, impactful project that would be of scientific interest to the AI community, in addition to its value as a tool to advance PRP scholarship.
+
+
+\subsubsection{Fine-Tuned LLMs to Create Oral History Interview Metadata}\label{section.applications.hard.pohp}
+The Miller Center's Presidential Oral History Project (POHP) generates rich, long-form interviews with former White House personnel and other presidential confidants.  To maximize the value of the corpus of these interviews, two summary bits of metadata are desirable:
+\begin{enumerate}
+\item \emph{Page-wise indexing}: POHP staff have long desired a full index of all published OHP interviews to support internal organization and retrieval operations.
+\item \emph{Interview-wise summarization}: When interviews are published, they require an accompanying pr\'{e}cis, a brief prose description of the interview contents.
+\end{enumerate} 
+Both of these operations--indexing interviews and summarizing them into a pr\'{e}cis--are laborious tasks for humans, but plausibly something an LLM could automate.
+
+Again, the exact design specification for this task's solution is a complex question.  But a likely architecture here would use LLM fine-tuning.   The most direct path towards automating the creation of both OHP metadata types (indexing and pr\'{e}cis), would be to choose a foundation model such as GPT-4 and then to fine tune it twice, once for each task, page indexing and interview pr\'{e}cis creation.  Training two separate models is desirable in this case because w are training for two distinct tasks.  Separating the fine tuning process would prevent the model from confusing the two tasks, possibly diminishing the needed volume of training data.  
+
+To train an OHP interview indexing model, the training data would consist of \{interview page, indexing metadata\} pairs.  That is, for each training page, humans would enumerate which indexing terms they would assign to that page.  Feeding 50-100 indexed pages to the foundation model should give it enough information to generalize well on unseen pages (the real number needed may be substantially lower than 50, as initial experiments suggest that even GPT-4 with no fine tuning performs well on this task.
+
+\begin{figure}[htbp]
+\begin{lstlisting}[language=Python]
+client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
+def get_completion(prompt):
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        model="gpt-4",
+    )
+    return chat_completion.choices[0].message.content
+def extract_text_from_pdf(pdf_path):
+    with open(pdf_path, 'rb') as file:
+        reader = PyPDF2.PdfReader(file)
+        num_pages = len(reader.pages)
+        for i in range(num_pages):
+            page = reader.pages[i]
+            yield i, page.extract_text()
+
+def main(pdf_path):
+    page_number=0
+    for page_number, text in extract_text_from_pdf(pdf_path):
+        page_number += 1
+        prompt = "List all person, country , and government agency names contained in the following text: " + text
+        completion = get_completion(prompt)
+        print(str(page_number), completion)
+
+if __name__ == "__main__":
+    pdf_path = "./data/Abrams_Elliot.final2.pdf"
+    main(pdf_path)
+\end{lstlisting}
+\caption{A Sample Python Program for Automatically Extracting Indexing Terms from an Interview.}
+\label{figure.python}
+\end{figure}
+
+To show how the indexing process could be fully automated, Figure \ref{figure.python} shows a simple program that generates page-wise indexing terms for an Oral History interview.  This example gets its data from the GPT-4 foundation model but changing this to pull from a fine-tuned model is trivial (simply change line 12 of the program).  By hosting this program in the Miller Center's AWS account we could create a system that automatically indexes any new interviews that we publish on mc.org (or that we otherwise mark as ``complete").
+
+Creating interview pr\'{e}cis documents could be automated in a similar way.  In this case, instead of training our model in a page-wise fashion, our training data would entail a set of \{interview, precis\} pairs.  By using the set of interviews on mc.org that already have a pr\'{e}cis, we can build our training set trivially.  To train our pr\'{e}cis model, we simply upload this training set to the fine-tuning API.  The available set of interview-pr\'{e}cis pairs should more than suffice for this training.
+
+There is, however, one point of difficulty that we must solve before deploying an automatic pr\'{e}cis creation tool.  The problem has to do with the ``context window" of LLMs.  The context window is simply the maximum allowable length of an LLM's prompts.  Each model's context window is different, and for the most part, larger models have larger context windows.  GPT-4's context window is 8,000 tokens (approximately 8,000 words).  For comparison, the Elliott Abrams interview shown in Figure \ref{figure.python} is 95,693 tokens, as per OpenAI's counting method.  Thus we must devise a way to extract a single, summative pr\'{e}cis from GPT-4 (or any fine-tuned model derived from it), when we can only show $\frac{1}{11}^{th}$ of the interview to the model at a time.
+
+How to overcome this context window limitation is an open problem, a viable research question in its own right.  However, our initial experiments suggest that an iterative algorithm can be used to solve this issue.  The algorithm runs as follows:
+\begin{enumerate}
+\item Begin with input interview $D$.
+\item Split $D$ into $n$ sub-documents $D_1, D_2, \ldots, D_n$ such that  $length(D_i < 8000)$.
+\item For each sub-document $D_i$ generate a corresponding ``pseudo pr\'{e}cis" $P_i$ by submitting $D_i$ for summarization by the model.  This results in a set of $n$ pseudo-pr\'{e}cis $P_1, P_2, \ldots, P_n$.
+\item Generate a final pr\'{e}cis $P$ by submitting the pseudo-pr\'{e}cis to the model with a prompt asking the model to combine them into a single, unified summary.
+\end{enumerate}
+Testing and troubleshooting this algorithm will require some work, but initial experiments suggest that it is feasible and practical.  
+
+
+
+
+
+
 
 
 \pagebreak
