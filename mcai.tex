@@ -725,7 +725,7 @@ The Miller Center's Presidential Oral History Project (POHP) generates rich inte
 \item \emph{Page-wise indexing}: POHP staff have long desired a full index of all published OHP interviews to support internal organization and retrieval operations.
 \item \emph{Interview-wise summarization}: When interviews are published, they require an accompanying pr\'{e}cis, a brief prose description of the interview contents.
 \end{enumerate} 
-Both of these operations--indexing interviews and summarizing them into a pr\'{e}cis--are laborious tasks for humans, but plausibly something an LLM could automate.
+Both of these operations--indexing interviews and summarizing them into a pr\'{e}cis--are laborious tasks for humans, but plausibly something an LLM could automate.\footnote{The same indexing operations that we are outlining could be useful for PRP data too, if there is an interest in that approach.  The indexing methodology described in this section could be applied to recording transcripts exactly as we have laid out here.}
 
 Again, the exact design specification for this task's solution is a complex question.  But a likely architecture  would use LLM fine-tuning.   The most direct path towards automating the creation of both OHP metadata types (indexing and pr\'{e}cis), would be to choose a foundation model such as GPT-4 and then to fine tune it twice, once for each task, page indexing and interview pr\'{e}cis creation.  Training two separate models is desirable in this case because we are training for two distinct tasks.  Separating the fine tuning process would prevent the model from confusing the two tasks, possibly diminishing the needed volume of training data.  
 
