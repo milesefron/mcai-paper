@@ -95,8 +95,8 @@ Informally integrating AI tools into Miller Center work			&	\colorbox{green}{Low
  Expanding our data portal								&	\colorbox{green}{Low}	& \colorbox{Goldenrod}{Medium}		&	\ref{section.applications.easy.data-portal}	\\
  \midrule
 
-Open database of presidential deepfakes						&	\colorbox{Goldenrod}{Low}	& \colorbox{Goldenrod}{Medium}		&	\ref{section.applications.easy.sitesearch}	\\
- \midrule
+%Open database of presidential deepfakes						&	\colorbox{Goldenrod}{Low}	& \colorbox{Goldenrod}{Medium}		&	\ref{section.applications.easy.sitesearch}	\\
+ %\midrule
  					\multicolumn{4}{c}{More Ambitious Projects}														\\
 \midrule
 LLMs to extract OHP interview metadata						&	\colorbox{Goldenrod}{Medium}	& \colorbox{green}{Low}		&	\ref{section.applications.hard.mcllm}	\\
@@ -636,29 +636,6 @@ For the public events, no additional processing is needed.  Since we host videos
 The main work of this modest project would be $A$) assessing how to handle the problem of noisy recordings and then $B$) making the needed changes to the website.  The work of attaching the transcripts to their pages on mc.org would be a fairly simple programming task.  Finally, we would need to build some user interface changes into the site search engine to allow users to include or exclude the AI-generated full-text search.  However, none of these tasks is difficult.
 
 In terms of cost, the main cost would come from obtaining the AI-generated recording transcripts.  However, even this is a modest outlay.  If we transcribed every minute of audio shown in Table \ref{table.data.prp} using OpenAI's \href{https://openai.com/research/whisper}{Whisper} audio-to-text AI, the cost would be about \$1,725.  If we limited transcription to relatively ``clean" recordings, this cost would go down.
-
-\subsubsection{A Public Service: Hosting an Open Database of Presidential Deepfakes}\label{section.applications.easy.deepfakes}
-An increasingly keen problem of public interest is the dissemination of so-called deepfakes—images, audio recordings or videos that purport to be authentic but are in fact fraudulent, usually created by AI tools.  Figure \ref{figure.deepfakes} shows (normalized\footnote{The normalization here is a percentage.  In Figure \ref{figure.deepfakes}, the search volume was was about \%20 percent of its maximum in 2019 and  \%100 of its maximum in 2024.}) global web search volume for the term \emph{deepfakes}, according to Google Trends.  For reference, according to Google Ads, the current search volume for \emph{deepfakes} is approximate 1M searches per month. The figure shows that public interest in deepfakes rose steadily, from about 250,000/month in 2018 to 1M/month in 2024.  
-
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics{./figures/deepfakes.png}
-\caption{Google Trends Search Volume for \emph{Deepfakes}, 2017-2024.}
-\label{figure.deepfakes}
-\end{center}
-\end{figure}
-
-The political arena is especially vulnerable to influence by bad actors using deepfakes.  Armed with AI tools, online trolls could manipulate public opinion in at least two ways:
-\begin{enumerate}
-\item By manufacturing fraudulent “evidence” of scandalous or inflammatory statements by public officials or members of sensitive groups.
-\item Inversely, excusing genuine bad behavior by claiming that real evidence is fake.
-\end{enumerate}
-As deepfakes become easier to create and harder to detect, the risks they pose to political discourse will grow more and more worrisome.  Recently, the online magazine UVA today highlighted several scholars on Grounds (from the Center for Politics and the Law School) who are concerned about exactly this intersection \cite{mckenzie:2023}.
-
-An impactful project in this space would be an online database of political deepfakes, a resource for the public to consult when they find online content of dubious authenticity.  The database could operate similarly to the urban legend debunking resource \href{https://snopes.com}{snopes.com}.  A website associated with the database could accept reports of deepfakes which an editor would then verify and add to the corpus (given appropriate evidence of fraudulence).  The goal would be to provide information about known deepfakes so that stakeholders such as journalists, scholars and informed citizens could find context about the provenance of online fakes.
-
-Hosting such a web-based resource would entail modest technical effort, since it would not require special software or hardware.  Maintaining a deepfake database would mainly require staffing by easily trainable, possibly student editors.  At the time of this writing, there appears to be no resource of this kind online, which provides an opening for the Miller Center to offer a novel service with high public visibility and impact.  Building and maintaining a public-facing deepfake database could be a valuable addition to the Miller Center’s online portfolio, burnishing its credentials as an organization that engages with the intersection of AI and politics.
 
 
 \subsection{Ambitious, Moonshot-Type Applications}\label{section.applications.hard}
